@@ -131,7 +131,7 @@ const Login = ()=> {
   
     try {
       // Make an API call to authenticate the user
-      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${username}/${password}`, {
+      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployee/${username}/${password}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -165,7 +165,7 @@ const Login = ()=> {
           // Employee
 
           console.log("Empolyee authenticated");
-          const emailResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${username}`, {
+          const emailResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployeeByEmail/${username}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
