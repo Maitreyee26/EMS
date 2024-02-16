@@ -174,7 +174,7 @@ const Calendar = () => {
         return; // Exit the function early
       }
       
-      const response = await fetch("http://localhost:8080/addHoliday", {
+      const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/addHoliday", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -200,7 +200,7 @@ const Calendar = () => {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const response = await fetch("http://localhost:8080/findAllHolidays");
+        const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/findAllHolidays");
         if (response.ok) {
           const holidaysData = await response.json();
           setHolidays(holidaysData);

@@ -461,7 +461,7 @@ export default function EmployeeRegistrationForm() {
         // console.log(fdropdown.value);
 
         // Send a POST request to the backend with the modified form data
-        const response = await fetch("http://localhost:8080/addEmployee", {
+        const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/addEmployee", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

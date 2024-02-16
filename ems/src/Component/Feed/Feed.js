@@ -521,7 +521,7 @@ const Feed = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:8080/findAllPosts");
+      const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/findAllPosts");
       const data = await response.json();
       setPosts(data.reverse()); // Reverse the order of posts
       console.log(data);
@@ -551,7 +551,7 @@ const Feed = () => {
       };
 
       try {
-        await fetch("http://localhost:8080/addPost", {
+        await fetch("https://ems-backend-production-3f3d.up.railway.app/addPost", {
           method: "POST",
           body: JSON.stringify({
             employeeEntity: {
@@ -574,7 +574,7 @@ const Feed = () => {
   const handleUpdatePost = async (postId, newPostContent) => {
     try {
       await fetch(
-        `http://localhost:8080/updatePost/${postId}/${newPostContent}`,
+        `https://ems-backend-production-3f3d.up.railway.app/${postId}/${newPostContent}`,
         {
           method: "PUT",
         }
@@ -588,7 +588,7 @@ const Feed = () => {
 
   const handleDeletePost = async (postId) => {
     try {
-      await fetch(`http://localhost:8080/deletePost/${postId}`, {
+      await fetch(`https://ems-backend-production-3f3d.up.railway.app/${postId}`, {
         method: "DELETE",
       });
 
@@ -605,7 +605,7 @@ const Feed = () => {
 
     if (commentText && commentText.trim() !== "") {
       try {
-        await fetch("http://localhost:8080/addComment", {
+        await fetch("https://ems-backend-production-3f3d.up.railway.app/addComment", {
           method: "POST",
           body: JSON.stringify({
             postEntity: {
@@ -638,7 +638,7 @@ const Feed = () => {
       // If already liked, remove the like
       if (alreadyLiked) {
         // Perform the removal of like
-        await fetch(`http://localhost:8080/removeLikeByEmpIdAndPostId/${empId}/${postId}`, {
+        await fetch(`https://ems-backend-production-3f3d.up.railway.app/removeLikeByEmpIdAndPostId/${empId}/${postId}`, {
           method: "DELETE",
         });
   
@@ -652,7 +652,7 @@ const Feed = () => {
         alert("Like removed successfully");
       } else {
         // If not already liked, add the like
-        const response = await fetch("http://localhost:8080/addLike", {
+        const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/addLike", {
           method: "POST",
           body: JSON.stringify({
             postEntity: {
@@ -684,7 +684,7 @@ const Feed = () => {
   const fetchLikesForPost = async (postId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/findLikesByPostId/${postId}`
+        `https://ems-backend-production-3f3d.up.railway.app/${postId}`
       );
       if (response.ok) {
         const likesData = await response.json();
@@ -813,7 +813,7 @@ const Comment = ({ postId, loggedInEmpId }) => {
   const fetchComments = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/findCommentsByPostId/${postId}`
+        `https://ems-backend-production-3f3d.up.railway.app/${postId}`
       );
       if (response.ok) {
         const commentsData = await response.json();
@@ -834,12 +834,12 @@ const Comment = ({ postId, loggedInEmpId }) => {
     const fetchProfilePictureAndName = async (empId) => {
       try {
         const response = await fetch(
-          `http://localhost:8080/findEmployeeById/${empId}`
+          `https://ems-backend-production-3f3d.up.railway.app/${empId}`
         );
         if (response.ok) {
           const employeeData = await response.json();
           const profilePictureResponse = await fetch(
-            `http://localhost:8080/viewProfilePicture/${empId}`
+            `https://ems-backend-production-3f3d.up.railway.app/viewProfilePicture/${empId}`
           );
           if (profilePictureResponse.ok) {
             const imageBlob = await profilePictureResponse.blob();
@@ -929,7 +929,7 @@ const Comment = ({ postId, loggedInEmpId }) => {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await fetch(`http://localhost:8080/deleteComment/${commentId}`, {
+      await fetch(`https://ems-backend-production-3f3d.up.railway.app/${commentId}`, {
         method: "DELETE",
       });
       // After successful deletion, fetch the updated comments
@@ -941,7 +941,7 @@ const Comment = ({ postId, loggedInEmpId }) => {
 
   const handleUpdateComment = async (commentId, updatedComment) => {
     try {
-      await fetch(`http://localhost:8080/updateComment/${commentId}/${updatedComment}`, {
+      await fetch(`https://ems-backend-production-3f3d.up.railway.app/${commentId}/${updatedComment}`, {
         method: "PUT",
       });
       // After successful update, fetch the updated comments
@@ -1148,12 +1148,12 @@ const Comment = ({ postId, loggedInEmpId }) => {
   const fetchCreatorInfo = async (creatorId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/findEmployeeById/${creatorId}`
+        `https://ems-backend-production-3f3d.up.railway.app/findEmployeeById/${creatorId}`
       );
       if (response.ok) {
         const creatorData = await response.json();
         const profilePictureResponse = await fetch(
-          `http://localhost:8080/viewProfilePicture/${creatorId}`
+          `https://ems-backend-production-3f3d.up.railway.app/viewProfilePicture/${creatorId}`
         );
         if (profilePictureResponse.ok) {
           const imageBlob = await profilePictureResponse.blob();

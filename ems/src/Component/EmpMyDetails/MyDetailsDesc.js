@@ -28,7 +28,7 @@ export default function MyDetailsDesc() {
     const fetchUserDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/findEmployeeByEmail/${username}`
+          `https://ems-backend-production-3f3d.up.railway.app/${username}`
         );
         const data = await response.json();
         setUserDetails(data);
@@ -205,7 +205,7 @@ approvalStatus);
   const updateUserDetails = async (updatedDetails) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/editEmployee/${empId}`,
+        `https://ems-backend-production-3f3d.up.railway.app/${empId}`,
         {
           method: "PUT",
           headers: {
@@ -229,7 +229,7 @@ approvalStatus);
   useEffect(() => {
     const fetchFileData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/viewFile/${empId}/1`);
+        const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${empId}/1`);
         const data = await response.json();
         // Filter files for education and identity
         const eduFileNames = ["10th Certificate", "12th Certificate", "Graduation Certificate","Post Gradution Certificate"];
@@ -243,7 +243,7 @@ approvalStatus);
         
         const fetchStatus = async (fileId) => {
           try {
-            const response = await fetch(`http://localhost:8080/findStatusById/${fileId}`);
+            const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${fileId}`);
             const statusData = await response.text();
             return statusData;
           } catch (error) {
@@ -328,7 +328,7 @@ approvalStatus);
   };
   const handleDeleteFile = async (fileId) => {
     try {
-      const response = await fetch(`http://localhost:8080/deleteFile/${fileId}`, {
+      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${fileId}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -575,7 +575,7 @@ approvalStatus);
          {status === 'pending' && <FaClock className="pending-icon" />}
          {status === 'approved' && <FaCheck className="approved-icon" />}</p>
         <a
-          href={`http://localhost:8080/viewFileById/${fileId}`}
+          href={`https://ems-backend-production-3f3d.up.railway.app/${fileId}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -611,7 +611,7 @@ approvalStatus);
         <p className="mydetailsdesc-label">{fileName}  {status === 'pending' && <FaClock className="pending-icon" />}
   {status === 'approved' && <FaCheck className="approved-icon" />}</p>
         <a
-          href={`http://localhost:8080/viewFileById/${fileId}`}
+          href={`https://ems-backend-production-3f3d.up.railway.app/${fileId}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -650,7 +650,7 @@ approvalStatus);
   {status === 'approved' && <FaCheck className="approved-icon" />}
   </p>
         <a
-          href={`http://localhost:8080/viewFileById/${fileId}`}
+          href={`https://ems-backend-production-3f3d.up.railway.app/${fileId}`}
           target="_blank"
           rel="noopener noreferrer"
         >
