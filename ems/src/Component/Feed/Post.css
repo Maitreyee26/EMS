@@ -1,0 +1,113 @@
+/* Add this styling in your CSS file, e.g., Post.css */
+
+/* Add this styling in your CSS file, e.g., Post.css */
+
+.post {
+  border: 1px solid #ccc;
+  position: relative;
+  /* margin: 10px 0; */
+  /* padding: 10px; */
+  border-radius: 8px;
+  margin-right: 150px; /* or adjust based on your layout */
+/* or adjust based on your layout */
+box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+}
+.post-content{
+  margin-bottom: 10px;
+  margin-top:10px;
+  padding:20px;
+  padding-left: 25px;
+  overflow-x: hidden; /* Hide overflowing content */
+  word-wrap: break-word; /* Allow long words to be broken and wrap onto the next line */
+  overflow-wrap: break-word; 
+  height:fit-content;
+}
+.post p {
+  margin-bottom: 10px;
+}
+
+.post button {
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for selected reaction */
+.post button.selected {
+  font-weight: bold;
+  color: #ff5733; /* Change the color to your preferred color */
+}
+/* Styling for selected reaction */
+.post button.selected {
+  font-weight: bold;
+  color: #ff5733; /* Change the color to your preferred color */
+}
+
+/* Display reaction buttons in one line */
+.post button {
+  display: inline-flex;
+}
+.like-button{
+  margin-left:20px;
+}
+.comments {
+  margin-top: 10px;
+  margin-left:10px;
+}
+
+.comments div {
+  margin-bottom: 5px;
+}
+
+
+.post p {
+  text-align: left; 
+  /* or justify */
+  /* Add other styling properties as needed */
+}
+.send-button{
+  /* box-shadow: 0 2px 5px rgba(3, 3, 3, 0.4); */
+ height: 30px;
+ color: blue;
+ border-radius: 20px;
+}
+
+.comment-input{
+ height: 30px;
+ margin-top: 50px;
+}
+.comment-input-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-image{
+  margin-bottom:20px;
+  margin-left:60px;
+}
+.like-button{
+  color:blue;
+  font-size:large;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+}
+.feed-edit-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+}
+.feed-delete-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+}
+
+.post-actions {
+  position: absolute;
+  top:0;
+  margin-top: 5px;
+  right: 0;
+  display: flex;
+  gap: 8px;
+}

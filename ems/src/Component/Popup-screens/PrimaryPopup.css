@@ -1,0 +1,50 @@
+/* EditDetailsPopup.css */
+ 
+.edit-popup {
+  position: absolute;
+  top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+   
+  .edit-popup.visible {
+    display: block;
+  }
+  .popup-search-button {
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    background-color: rgb(10, 102, 222);
+    color: white;
+    border: none;
+    border-radius: 10%;
+    height: 40px;
+    width: 60px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    /* float: right; */
+    margin-top:10px;
+  }
+  
+  .popup-search-button:hover {
+    background: linear-gradient(to right, blue, rgb(198, 121, 231));
+  }
+  .popup-label{
+    margin-right:170px;
+  }
+  .popup-label-select{
+    margin-right:120px;
+    margin-top:10px;
+    width:150px;
+  }
+  .popup-input{
+    width:20px;
+  }

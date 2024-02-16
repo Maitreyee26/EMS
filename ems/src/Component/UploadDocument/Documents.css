@@ -1,0 +1,196 @@
+ body {
+   background-color: white;
+   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+ }
+
+
+ body::before {
+   content: "Pursuit Software";
+   font-family: sans-serif;
+   font-size: 3.8em;
+   color: #a39696;
+   opacity: 0.1;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(-20deg);
+   z-index: -1;
+ }
+
+ /* .certificateFile {
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+} */
+.main-upload-document-div{
+ display:flex;
+ height:50vh;
+}
+ .certificate-form {
+  height: 400px;
+  margin-left: 180px;
+  margin-top: 70px;
+  padding-top: 10px;
+
+  padding-left: 10px;
+  margin-right:20px;
+  /* border: 2px solid red; */
+
+ }
+
+ .doc-label {
+   display: inline-block;
+   margin-right: 40px;
+   text-align: left;
+   
+
+ }
+
+ .documents-name {
+   width: 250px;
+   padding: 8px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-top: 4px;
+   text-align: center;
+   float: right;
+ }
+
+ .btn1 {
+   margin-right:100px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(10, 102, 222);
+      width: 160px;
+      height: 40px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 700;
+      padding-bottom: 20px;
+      padding-top:8px;
+      margin-left:600px;
+      margin-bottom:54px;
+      margin-top:30px;
+      box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+ }
+
+ .dropdown-achievement {
+ 
+   border-radius: 4px;
+   cursor: pointer;
+   text-align: center;
+   float: right;
+   padding: 10px;
+   border-radius: 8px;
+   font-size: 14px;
+   width:250px;
+   
+
+ }
+
+ .document-select-option {
+   padding: 10px;
+   background-color: rgb(152, 152, 255);
+   color: white;
+   transition: background-color 0.3s ease;
+ }
+
+ .certificate-file-button {
+   margin-top: 20px;
+ }
+
+ .btn1:hover {
+   background: linear-gradient(to right, blue, rgb(198, 121, 231));
+   color: rgb(255, 255, 255);
+ }
+
+ /* .dropdown-achievement:hover{
+  background: linear-gradient(to right,blue,rgb(198, 121, 231));
+
+} */
+.document-type-dropdown{
+ margin-bottom:20px;
+}
+
+ .certificate-file-button {
+   position: relative;
+ }
+
+ .upload-icon-button {
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   transform: translateY(-50%);
+   cursor: pointer;
+   background: none;
+   border: none;
+   padding: 0;
+   margin-left: 255px;
+   margin-top: -5px;
+   border: none;
+   background: none;
+   font-size: 25px;
+
+ }
+
+
+.document-type-and-error{
+  /* border:2px solid red; */
+  height:80px;
+}
+ .certificate-description-column {
+   /* margin-bottom: 70px; */
+   margin-bottom: 10px;
+ }
+
+ .certificate-file-button {
+   margin-bottom: 10px;
+ }
+.error-message-document{
+  color:orangered;
+  height:30px;
+  margin-bottom:10px;
+  font-size:small;
+}
+.with-border {
+  border: 2px solid #ccc; /* Adjust border styles as needed */
+  border-radius: 5px; /* Add rounded corners if desired */
+  padding: 10px; /* Add padding for better visual appearance */
+  width:500px;
+  margin-right:10px;
+  margin-top:50px;
+  height:250px;
+  margin-left: 20px;
+}
+
+.pdf-preview-section {
+  border: 2px solid #ccc; /* Adjust border styles as needed */
+  border-radius: 5px; /* Add rounded corners if desired */
+  padding: 10px; /* Add padding for better visual appearance */
+  width:500px;
+  margin-right:10px;
+  margin-top:50px;
+  height:250px;
+  
+}
+
+.pdf-preview-section-iframe {
+  width: 100%;
+  height: 100%;
+}
+.preview-placeholder{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+.upload-document-primereact-message   
+{
+ margin-left:70px;
+  width:fit-content;
+  float:right;
+}

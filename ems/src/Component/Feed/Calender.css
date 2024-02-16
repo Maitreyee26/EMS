@@ -1,0 +1,156 @@
+.calendar-container {
+  width: 350px;
+  margin: 20px;
+  height:fit-content;
+  /* border: 2px solid red; */
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+}
+.feed-container-header{
+  /* border:2px solid red; */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  background: #dedee2;
+}
+.calendar-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #ffa5a5;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.calendar-table th {
+  background-color: #f2f2f2;
+}
+
+.empty-cell {
+  background-color: #f8f8f8;
+}
+
+.holiday-cell {
+  background-color: #f66fed;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.holiday-text {
+  display: none;
+}
+.light-yellow-cell {
+  background-color: rgb(255, 255, 105);
+}
+
+.light-yellow-cell:hover {
+  background-color: yellow;
+}
+.light-yellow-cell:hover:after {
+  content: "Full day weekly off";
+  position: absolute;
+  top: 70%;
+  left: 100%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: yellow;
+  color: black;
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 1;
+  font-size: x-small;
+}
+.holiday-cell:hover {
+  background-color: #f4b0c7;
+}
+
+.holiday-cell:hover:after {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: #ff70a0;
+  color: white; /* Text color for the hover effect */
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 1;
+  font-size: x-small;
+}
+.calender-button{
+  font-size:30px;
+  color: #9191fc;
+}
+
+
+
+.floating-holiday-cell {
+  background-color: #ffdb58; /* Different color for floating holidays */
+}
+
+
+.floating-holiday-cell:hover:after{
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 60%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: yellow;
+  color: black;
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 1;
+  font-size: x-small;
+}
+.add-holiday-button{
+  border: none;
+  background-color: rgb(10, 102, 222);
+  width: fit-content;
+  height: 30px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+  top:0;
+  margin-left: 100px;
+
+}
+.add-holiday-button:hover{
+  background: linear-gradient(to left, blue, rgb(198, 121, 231));
+  color: white;
+}
+.add-holiday-form{
+  margin-top:20px;
+}
+.calender-date-floater{
+  display: flex;
+  gap:20px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+
+}
+.calender-date-floater input{
+  width:170px;
+  border-radius: 20px;
+  padding:5px;
+}
+.calender-date-floater select{
+  width:170px;
+  border-radius: 20px;
+  padding:5px;
+}
+.holidy-name-input-button{
+  display:grid;
+  gap:20px;
+  padding:10px;
+}
+.holidy-name-input-button input{
+  border-radius: 20px;
+  padding:5px;
+} 

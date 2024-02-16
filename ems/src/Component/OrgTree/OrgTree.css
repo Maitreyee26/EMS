@@ -1,0 +1,60 @@
+/* <tr class="p-organizationchart-lines" data-pc-section="lines" style="visibility: inherit;"><td colspan="8" data-pc-section="linecell"><div class="p-organizationchart-line-down" data-pc-section="linedown"></div></td></tr> */
+
+/* td.p-organizationchart-line-left {
+  border-right: 2px solid black;
+}
+.p-organizationchart-line-down {
+  border: 1px solid black;
+}
+.p-organizationchart-line-top {
+  border-top: 2px solid black;
+} */
+
+.organization-tree {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-left:100px !important;
+}
+
+.organization-tree h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.organization-tree ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.organization-tree ul li {
+  margin-bottom: 10px;
+}
+
+.organization-tree ul li span {
+  font-weight: bold;
+}
+
+.organization-tree ul ul {
+  margin-left: 20px;
+}
+
+.organization-tree ul ul ul {
+  margin-left: 40px;
+}
+
+/* Style for different levels */
+.level-1 {
+  color: #333;
+}
+
+.level-2 {
+  color: #555;
+}
+
+.level-3 {
+  color: #777;
+}

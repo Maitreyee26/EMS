@@ -1,0 +1,41 @@
+ 
+   .contact-edit-popup {
+    /* position: fixed;
+    top: 50%; */
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+   
+  .contact-edit-popup.visible {
+    display: block;
+  }
+  .popup-search-button {
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    background-color: rgb(10, 102, 222);
+    color: white;
+    border: none;
+    border-radius: 10%;
+    height: 40px;
+    width: 60px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    
+    margin-top:10px;
+  }
+ 
+  .popup-search-button:hover {
+    background: linear-gradient(to right, blue, rgb(198, 121, 231));
+  }
+ 

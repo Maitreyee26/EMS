@@ -1,0 +1,272 @@
+/* src/components/Feed.css */
+
+.feed-container{
+    max-width: 600px;
+    margin: 20px;
+   
+  
+  }
+  
+  .post {
+    border: 1px solid #ccc;
+    margin: 16px 0;
+    padding: 16px;
+  }
+  
+  .comment {
+    margin-top: 8px;
+  }
+  
+  .feed-container input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin-right: 8px;
+    margin-top:10px;
+  }
+  
+  /* .feed-container button {
+    padding: 8px;
+    cursor: pointer;
+  }
+   */
+  .feed-container h1 {
+    text-align: center;
+  
+  }
+  .feed-post{
+    margin-top: 20px;
+  }
+  .file-upload-label{
+    margin-right: 20px;
+    padding:5px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .feed-post-button{
+    border: none;
+    background-color: rgb(10, 102, 222);
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    top:0;
+  }
+
+  .feed-post-button:hover {
+    background: linear-gradient(to right,blue,rgb(198, 121, 231));
+  }
+ 
+  
+  /* .like-button-main{
+    border-radius: 50px;
+    border: none;
+    color: blue;
+  } */
+  .like-button-main {
+    color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50px;
+    /* color: rgb(252, 252, 254); */
+    color: blue;
+  }
+  
+  /* .like-button-main.liked {
+    color: rgb(45, 3, 33); 
+  } */
+  .comment-input{
+    height: 30px;
+    border-radius: 20px;
+    /* margin-bottom: 10px; */
+   }
+   .post-content{
+    margin-bottom: 10px;
+    margin-top:10px;
+    padding:20px;
+    padding-left: 25px;
+    overflow-x: hidden; /* Hide overflowing content */
+    word-wrap: break-word; /* Allow long words to be broken and wrap onto the next line */
+    overflow-wrap: break-word; 
+    height:fit-content;
+    
+  }
+  /* Styling for selected reaction */
+.post button.selected {
+  font-weight: bold;
+  color: #ff5733; /* Change the color to your preferred color */
+}
+/* Styling for selected reaction */
+.post button.selected {
+  font-weight: bold;
+  color: #ff5733; /* Change the color to your preferred color */
+}
+
+/* Display reaction buttons in one line */
+.post button {
+  display: inline-flex;
+}
+
+
+.comments div {
+  margin-bottom: 5px;
+}
+
+
+.post p {
+  text-align: left; 
+  /* or justify */
+  /* Add other styling properties as needed */
+}
+.send-button{
+  /* box-shadow: 0 2px 5px rgba(3, 3, 3, 0.4); */
+ height: 30px;
+ color: blue;
+ border-radius: 20px;
+}
+.commenter-profile-picture{
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #7e497e;
+  background-color: #938de3;
+}
+.comment-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap:10px;
+}
+/* .comment-text {
+  flex-grow: 1;
+} */
+.post-content{
+  margin-bottom: 10px;
+  margin-top:10px;
+  padding:20px;
+  padding-left: 25px;
+  overflow-x: hidden; /* Hide overflowing content */
+  word-wrap: break-word; /* Allow long words to be broken and wrap onto the next line */
+  overflow-wrap: break-word; 
+  height:fit-content;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+ 
+}
+.comment-details{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  word-wrap: break-word;
+ overflow-wrap: break-word; 
+  height:fit-content; 
+  padding-top:5px;
+  margin-top:10px;
+  padding-left:5px;
+  padding-right:5px;
+  border-radius: 20px;
+  /* border: 2px solid red; */
+  width:fit-content;
+  
+}
+.comment-text{
+  padding:0;
+  /* border: 2px solid red; */
+  padding-left:10px;
+}
+.comment-details strong{
+  padding-top:10px;
+  padding:5px;
+}
+.feed-edit-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+  color:#7e497e;
+  border:none;
+  background-color: transparent;
+}
+.feed-delete-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+  color:#7e497e;
+  border:none;
+  background-color: transparent;
+  
+}
+.comment-edit-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+  color:#7e497e;
+  border:none;
+  background-color: transparent;
+  font-size: 13px;
+}
+.comment-delete-button{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border-radius: 20px;
+  color:#7e497e;
+  border:none;
+  background-color: transparent;
+  font-size: 13px;
+}
+.postcreator-info{
+  display: flex;
+  gap:10px;
+  
+}
+.postcreator-profile-picture{
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #7e497e;
+  background-color: #938de3;
+}
+.edit-mode-post{
+  margin-left: -370px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.edit-mode-post textarea{
+  height: fit-content;
+}
+.edit-mode-save{
+  width: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  background-color: rgb(10, 102, 222);
+  /* height: 40px; */
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+ 
+}
+.comment-buttons {
+  display: flex;
+  gap: 5px;
+
+}
+.comment-header{
+  display: flex;
+}

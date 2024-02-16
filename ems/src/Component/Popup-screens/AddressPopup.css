@@ -1,0 +1,80 @@
+.edit-address-popup{
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  
+}
+.edit-address-popup.visible {
+    display: block;
+  }
+  .popup-search-button {
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    background-color: rgb(10, 102, 222);
+    color: white;
+    border: none;
+    border-radius: 10%;
+    height: 40px;
+    width: 60px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    /* float: right; */
+    margin-top:10px;
+  }
+  .popup-search-button:hover {
+    background: linear-gradient(to right, blue, rgb(198, 121, 231));
+  }
+.addpop-form-check {
+    position: relative;
+    padding-left: 24px; /* Adjust the padding as needed */
+     /* border:1px solid red; */
+     margin-left: 200px;
+  }
+  
+  .addpop-form-check input[type="checkbox"] {
+    position:absolute;
+    right: 45%;
+    transform: scale(0.7); /* Adjust the scale factor as needed */
+    margin: 0;
+  }
+  
+  /* .address-field {
+    margin-bottom: 10px;
+   
+  } */
+  
+  /* .address-field label {
+   
+    margin-bottom: 5px;
+    margin-right:100px;
+  } */
+  
+  .address-field input {
+    width: 80%; /* Make input fields fill the entire width of their container */
+    padding: 5px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    margin-left:5px;
+  }
+  
+  /* border:1px solid red; */
+ 
+ .addresspopup-li label{
+  /* border:1px solid red; */
+  width:150px;
+  text-align: left;
+  margin-right: 60px;
+  
+ }
+  .addresspopup-li input{
+    padding-left:0
+  }

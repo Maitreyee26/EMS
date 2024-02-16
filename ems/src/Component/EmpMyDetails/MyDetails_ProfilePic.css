@@ -1,0 +1,111 @@
+.upload-profilepic{
+    width:330px;
+    height:fit-content;
+    margin-top:90px;
+    margin-left:150px;
+    color: aqua;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+}
+.profilepic{
+    width:250px;
+    height:204px;
+    margin: 10px;
+    margin-bottom: 2px;
+    border: 0.5px solid black;
+ }
+.camera-icon{
+  margin-left: 290px;
+  margin-bottom: 70px;
+  position: absolute;
+  display : inline-block;
+  margin-top: 170px;
+}
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 8px;
+    font-size: 24px;
+    color: #120c0f; 
+    cursor: pointer;
+    padding: 8px;
+    margin-top: 8px;
+  }
+  .employee-name{
+    width:auto;
+    font-size:20px;
+    color: black;
+    text-align: center;
+  }
+  .passport-photo {
+    width: 100%;
+    height: 100%;
+  }
+  .initials-profile-picture {
+    /* position:absolute; */
+    /* top: 34%;
+    left: 46%; */
+    /* transform: translate(-10%, -50%); */
+    font-size: 100px; /* Adjust font size as per your requirement */
+    background-color: #938de3;
+    color:white;
+    width:250px;
+    height:204px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (max-width: 992px) {
+    .upload-profilepic {
+      margin-left: 50px; /* Adjust margin for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .camera-icon {
+      margin-left: 210px; /* Adjust margin for smaller screens */
+      margin-top: 120px; /* Adjust margin for smaller screens */
+      margin-bottom: 40px; /* Adjust margin for smaller screens */
+    }
+  
+    .employee-name {
+      font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    .upload-profilepic {
+      margin-left: 300px; /* Adjust margin for smallest screens */
+      width: 280px; /* Adjust width for smallest screens */
+    }
+    .profilepic{
+      width:250px;
+      height:204px;
+      margin: 2px;
+      margin-bottom: 2px;
+      border: 0.5px solid black;
+   }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .upload-profilepic {
+      margin-left: 50px; /* Adjust margin for smallest screens */
+      width: 280px; /* Adjust width for smallest screens */
+    }
+  
+    .camera-icon {
+      margin-left: 170px; /* Adjust margin for smallest screens */
+      margin-top: 100px; /* Adjust margin for smallest screens */
+      margin-bottom: 30px; /* Adjust margin for smallest screens */
+    }
+  
+    .employee-name {
+      font-size: 14px; /* Adjust font size for smallest screens */
+    }
+  }

@@ -1,0 +1,16 @@
+.calendar-feed-container {
+    display: flex;
+    justify-content: space-between;
+    /* max-width: 100px; */
+    /* margin-right:400px;  */
+    /* width: 60vw; */
+    margin:90px;
+    margin-left:150px;
+    margin-right:20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .inbox{
+    width:300px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+
+  }

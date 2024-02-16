@@ -1,0 +1,49 @@
+/* body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} */
+
+
+.footer-main {
+      background-color: rgb(238, 236, 236);
+      padding: 10px; 
+      flex: 1;
+      /* position: fixed; */
+      bottom: 0;
+      width: 100%;
+      /* margin-top: 70px */
+  }
+  .linkedin-icon{
+    width: 40px;
+    height: 20px;
+
+  }
+  .footer-brand {
+    font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+  }
+  
+  .copyright {
+      color: black;
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.7em; 
+  }
+  
+  .footer-links {
+     
+      font-size: 0.7em;
+      text-align: center;
+  }
+  
+  .footer-links a {
+      color: rgb(44, 138, 182);
+      text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+      text-decoration: underline;
+  }
+  
+   

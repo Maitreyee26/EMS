@@ -1,0 +1,67 @@
+.navbar-main{
+  height: 100%;
+  background-color:  #d8d4d8;
+color: white;
+width: fit-content;
+position: fixed;
+ top:70px;
+ padding: 5px;
+ padding-top: 20px;
+z-index: 1;
+font-size: smaller;
+text-align: center;
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* border: 2px dotted black; */
+  
+ 
+  }
+  .Navbar-list:hover {
+    color: rgb(0, 0, 0); /* White text color on hover */
+    background-color:white ;/* Background color on hover */
+    border: 1px solid rgb(98, 98, 236); 
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for a more polished effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+  }
+  .Navbar-list {
+    border-image-slice: 2; 
+    border-radius: 40%;
+    border: 1px solid transparent;
+    padding: 10px;
+    padding-bottom: 5px;
+    /* border: 2px solid red; */
+    
+    
+  }
+  /* .Navbar-list a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 200;
+  } */
+  .nav-list{
+    color: rgb(0, 0, 0);
+  }
+
+  
+.Navbar-list ion-icon{
+  font-size: 18px;
+}
+.Navbar-list.selected {
+  color: rgb(0, 0, 0);
+  background-color: white; 
+  border: 1px solid rgb(98, 98, 236);
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  
+}
+/* .selected {
+  background-color: #4caf50 !important; 
+  color: white;
+} */

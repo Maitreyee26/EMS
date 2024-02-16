@@ -1,0 +1,106 @@
+.leave-month-button-container {
+    display: flex;
+    max-width: 100%;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.month-button {
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(10, 102, 222);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: small;
+    border: none;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    border-radius: 20px;
+    width: 60px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.month-button:not(:last-child) {
+    margin-right: 5px;
+}
+
+.month-button:hover {
+    background: linear-gradient(to left, blue, rgb(198, 121, 231));
+}
+
+.month-button.active {
+    background-color: #d8d4d8;
+    color: #000000;
+}
+
+.leave-table-container {
+    margin: 20px;
+    margin-top: 40px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 300px;
+    position: relative;
+    margin-left: 20px;
+    width: 970px;
+}
+
+.leave-main-table-month-button {
+    margin-left: -25px;
+    margin-top: 50px;
+}
+
+#leave-year-dropdown,
+#leave-month-dropdown {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #d8d4d8;
+    border-radius: 5px;
+    font-size: large;
+    border: none;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    border-radius: 20px;
+    width: 150px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.leave-custom-table thead {
+    position: sticky;
+    top: 0;
+}
+
+.leave-custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.leave-custom-table th,
+.leave-custom-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.leave-custom-table th {
+    color: white;
+    background-image: url("https://images.unsplash.com/photo-1701221238491-d5247ff7abcc?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.leave-custom-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.leave-controls {
+    display: flex;
+    margin-left: 230px;
+    gap: 40px;
+    font-weight: bold;
+}

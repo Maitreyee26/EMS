@@ -1,0 +1,16 @@
+
+  /* Media queries for responsive adjustments */
+  @media screen and (max-width: 768px) {
+    /* .my-details-container {
+      flex-direction:column; 
+    } */
+    .my-details-container {
+        display: flex;
+      }
+      
+      .details-info {
+        flex: 1; /* Take remaining space */
+        margin-left: 20px; /* Add spacing between components */
+        margin-top:200px;
+      }
+  }

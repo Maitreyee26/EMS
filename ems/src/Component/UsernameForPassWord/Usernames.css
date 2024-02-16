@@ -1,0 +1,89 @@
+.username-container{
+    height: 330px;
+    margin-top: 150px;
+    /* border: 2px solid red; */
+    padding-left: 150px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 50px;
+    padding-top: 100px;
+    padding-right: 100px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+    display:grid;
+   
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+ 
+    /* background: #d8d4d8; */
+}
+.container{
+   bottom: 0;
+}
+body::before {
+    content: "Pursuit Software";
+    font-family: sans-serif;
+    font-size: 3.8em;
+    color: #a39696;
+    opacity: 0.1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+    z-index: -1;
+}
+  .setpass-continue-text{
+    padding: 5px;
+    color: green;
+    font-weight: 700;
+    margin-left: -10px !important;
+    width:400px;
+  }
+  .username-submit-button{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background-color: rgb(10, 102, 222);
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    margin-left: 70px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    top:0;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+  }
+  .username-submit-button:hover{
+    background: linear-gradient(to left,blue,rgb(198, 121, 231));
+    color: white;
+ }
+.errors{
+    height: 10px;
+    color: orangered;
+    padding-top: 20px;
+  
+}
+
+/* .username-label{
+text-align:left;
+margin-left:100px;
+
+} */
+.username-input {
+  border-top:none;
+  border-left: none;
+  border-right: none;
+  margin-right: 50px;
+  padding-left: 10px;
+}
+
+/* Remove border when input is focused */
+.username-input:focus {
+  outline: none; /* Remove default focus outline */
+}

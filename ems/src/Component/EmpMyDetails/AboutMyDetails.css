@@ -1,0 +1,96 @@
+
+.about-main-div{
+    /* background-color:#ffffff21; */
+    margin-left:500px;;
+    margin-right: 30px;
+    height:257px;
+    
+    width:695px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    margin-top: 89px;
+    padding-right:0;
+    
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+}
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%; 
+  }
+  
+  .grid-item {
+    padding: 20px;
+    margin-right:0;
+    text-align: center;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   
+  }
+  .action-button{
+    
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: auto;
+    text-align: center;
+    border: none;
+    background-color: rgb(10, 102, 222) !important;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-top:8px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+    
+  }
+  .action-button:hover{
+   background: linear-gradient(to left,blue,rgb(198, 121, 231));
+   color: white;
+  }
+  .dropdown {
+    position: relative; /* Ensure the dropdown container is positioned relatively */
+  }
+  
+  .icon-container {
+    position: absolute; /* Position the icon container absolutely within the dropdown */
+    right:5%;/* Align the icon container to the right */
+    top:55%; /* Align the icon container vertically in the middle */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+  }
+  
+  .hover-text {
+    position: absolute; /* Position the hover text absolutely within the dropdown */
+    top: 50%; /* Align the hover text vertically in the middle */
+    left: calc(100% + 10px); /* Adjust horizontal positioning */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    background-color: #fff; /* Add background color for better readability */
+    padding: 5px; /* Add padding for better spacing */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    z-index: 1; /* Ensure the hover text appears above other elements */
+    width:400px
+  }
+  .aboutmydetails-verified{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #3fda45;
+    border-radius: 20px;
+    padding:4px;
+    margin-left:5px;
+    padding-right:5px;
+  }
+  .aboutmydetails-pending{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #efa30c;
+    border-radius: 20px;
+    padding:4px;
+    margin-left:5px;
+    padding-right:5px;
+   
+  }

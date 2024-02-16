@@ -1,0 +1,48 @@
+
+
+.performace-manager-header-sub {
+  height: 50px;
+  
+  color: white;
+  
+  width: 89.5%;
+  height:89px;
+  margin-top: 70px;
+  margin-left: 120px;
+  left: 0;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+}
+.performace-manager-subheader-content{
+  color: black;
+  
+}
+.performace-manager-each-content{
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid blue;
+  
+  background:none ;
+  font-size: small;
+  font-weight: 500;
+ 
+  margin-left: 20px;
+  
+ 
+}
+.performace-manager-each-content:hover{
+  background:#d8d4d8;
+  color: black;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  border: none;
+  border-radius: 5px;
+}
+
+.performace-manager-each-content.active {
+  background:#d8d4d8;
+  color: black;
+  border: none;
+  border-radius: 5px;
+} 
+
+
+

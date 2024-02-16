@@ -1,0 +1,45 @@
+.subheaderorg-header-sub {
+    height: 50px;
+    /* background-image: url("https://images.unsplash.com/photo-1701221238491-d5247ff7abcc?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");  */
+    color: white;
+    /* padding: 1em; */
+    /* position: fixed; */
+    width: 89.5%;
+    /* top: 70; */
+    margin-top: 70px;
+    margin-left: 120px;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+  }
+  .subheaderorg-subheader-content{
+    color: black;
+    
+  }
+  .subheaderorg-each-content{
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid blue;
+    /* box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2); */
+    background:none ;
+    font-size: small;
+    font-weight: 500;
+    /* border-right: 2px solid blue;
+    border-left: 2px solid blue; */
+    margin-left: 20px;
+    
+   
+  }
+  .subheaderorg-each-content:hover{
+    background:#d8d4d8;
+    color: black;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .subheaderorg-each-content.active {
+    background:#d8d4d8;
+    color: black;
+    border: none;
+    border-radius: 5px;
+  }

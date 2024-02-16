@@ -1,0 +1,54 @@
+/* Demo1.css */
+
+.profile-container {
+  position: relative;
+ 
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 98%;
+  right:-100%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  white-space: nowrap; /* Ensure content stays on a single line */
+  display: inline-block;
+  width:150px;
+
+ text-align:center;
+
+}
+.dropdown-content p {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  margin: 0; /* Reset margin */
+  padding: 8px 0; /* Adjust padding as needed */
+}
+
+.dropdown-content-ul{
+  text-decoration: none;
+}
+.dropdown-content li {
+  
+  color: black;
+
+  border-bottom: 1px solid #ccc;
+
+}
+
+.dropdown-content p:last-child {
+  border-bottom: none;
+
+}
+
+.dropdown-content p:hover {
+  background-color: #f1f1f1;
+}
+
+.profile-container:hover .dropdown-content {
+  display: inline-block;
+}
+
