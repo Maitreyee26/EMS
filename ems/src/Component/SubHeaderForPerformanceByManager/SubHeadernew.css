@@ -1,22 +1,22 @@
 
 
-.performace-manager-header-sub {
+.subheader-manager-header-sub {
   height: 50px;
   
   color: white;
   
   width: 89.5%;
-  height:89px;
-  margin-top: 70px;
+  
+  margin-top: 5px;
   margin-left: 120px;
   left: 0;
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
 }
-.performace-manager-subheader-content{
+.subheader-manager-subheader-content{
   color: black;
   
 }
-.performace-manager-each-content{
+.subheader-manager-each-content{
   padding: 5px;
   border: none;
   border-bottom: 2px solid blue;
@@ -29,7 +29,7 @@
   
  
 }
-.performace-manager-each-content:hover{
+.subheader-manager-each-content:hover{
   background:#d8d4d8;
   color: black;
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
@@ -37,7 +37,7 @@
   border-radius: 5px;
 }
 
-.performace-manager-each-content.active {
+.subheader-manager-each-content.active {
   background:#d8d4d8;
   color: black;
   border: none;

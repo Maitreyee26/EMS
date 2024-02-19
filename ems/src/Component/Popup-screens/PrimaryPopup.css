@@ -38,13 +38,19 @@
     background: linear-gradient(to right, blue, rgb(198, 121, 231));
   }
   .popup-label{
-    margin-right:170px;
+    margin-right:180px;
+   
+    width:150px;
+    text-align: left;
+    /* border: 1px solid red; */
   }
   .popup-label-select{
     margin-right:120px;
     margin-top:10px;
-    width:150px;
+    /* border: 1px solid red; */
+    width:200px;
+    margin-left:-10px;
+  
+
   }
-  .popup-input{
-    width:20px;
-  }
+  /* .pop */

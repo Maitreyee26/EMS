@@ -64,7 +64,7 @@ useEffect(() => {
          </li>
          <li
           className={`Navbar-list ${selectedItem === 3 ? "selected" : ""}`}
-          onClick={() => handleItemClick(3,"/admin/performance")}
+          onClick={() => handleItemClick(3,"/performance")}
           // className="Navbar-list"
         >
          

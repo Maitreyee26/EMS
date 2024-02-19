@@ -4,7 +4,7 @@ import "./SubHeaderOrg.css";
 import OrganizationalTree from "../OrgTree/OrgTree";
 import AddEmployee from "../EmployeeRegistration/EmployeeRegistrationForm";
 import AddDepartment from "../AddDepartment/AddDepartmentForm"
-import EditEmployee from "../EditEmployee/EditEmployeeForm"
+import EditEmployee from "../EditEmployee/Employeeform"
 export default function SubHeaderforOrg() {
   const [activeButton, setActiveButton] = useState("OrganizationalTree");
 
@@ -79,7 +79,7 @@ export default function SubHeaderforOrg() {
           </div>
         </div>
       </nav>
-      <div className="component-container">{renderComponent()}</div>
+      <div className="subheaderorg-component-container">{renderComponent()}</div>
     </div>
   );
 }

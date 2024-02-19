@@ -85,11 +85,13 @@
    text-align: center;
    float: right;
    padding: 10px;
-   border-radius: 8px;
+   /* border-radius: 8px; */
    font-size: 14px;
    width:250px;
+   border: none;
+ 
+   border-bottom: 2px solid blue;
    
-
  }
 
  .document-select-option {

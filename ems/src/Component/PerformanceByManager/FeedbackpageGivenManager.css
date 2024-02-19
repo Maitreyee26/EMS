@@ -1,4 +1,4 @@
-.FeedbackBymanager-container {
+.feedbackpagegivenmanager-container {
    
     display: flex;
     z-index: -1;
@@ -14,51 +14,51 @@
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  .button-container {
+  .feedbackpagegivenmanager-button-container {
   display: flex;
   margin-bottom: 50px;
   gap:40px;
   }
   
   
-  .button-container {
+  .feedbackpagegivenmanager-button-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
   }
-  .filter-container {
+  .feedbackpagegivenmanager-filter-container {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   }
   
-  .select-container {
+  .feedbackpagegivenmanager-select-container {
   margin-left: 10px;
   }
   
-  .search-container {
+  .feedbackpagegivenmanager-search-container {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   }
   
-  .input-container {
+  .feedbackpagegivenmanager-input-container {
   margin-left: 10px;
   }
-  .filter-search{
+  .feedbackpagegivenmanager-filter-search{
   align-items: center;
   padding-top: 20px;
   gap:10px;
   width: 60vw;
   display: inline-flex;
   }
-  .filter-search label {
+  .feedbackpagegivenmanager-filter-search label {
   margin-right: 10px;
   font-weight: bold;
   color: #333;
   }
   
-  .filter-search select{
+  .feedbackpagegivenmanager-filter-search select{
   padding: 8px;
   border: 3px solid #ccc;
   border-radius: 20px;
@@ -66,7 +66,7 @@
   font-size: 14px;
   }
   
-  .filter-search input{
+  .feedbackpagegivenmanager-filter-search input{
   padding: 8px;
   border: 3px solid #ccc;
   border-radius: 30px;
@@ -75,7 +75,7 @@
   transition: border-color 0.3s;
   width: 480px;
   }
-  .search-button {
+  .feedbackpagegivenmanager-search-button {
   background-color: rgb(10, 102, 222);
   color: white;
   border: none;
@@ -87,12 +87,12 @@
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
   }
   
-  .search-button:hover {
+  .feedbackpagegivenmanager-search-button:hover {
   background: linear-gradient(to right,blue,rgb(198, 121, 231));
   }
 
   
-  .completedButton {
+  .feedbackpagegivenmanager-completedButton {
   background-color: blue;
   color: white;
   border: none;
@@ -103,41 +103,41 @@
   }
   
   
-  .completedButton:hover {
+  .feedbackpagegivenmanager-completedButton:hover {
   background: linear-gradient(to right, blue, rgb(198, 121, 231));
   }
   
-  .table-container {
+  .feedbackpagegivenmanagertable-container {
   margin-top: 20px;
   width: 80px;
   margin-right: 950px;
   }
   
-  .custom-table {
+  .feedbackpagegivenmanagercustom-table {
   width: 100px;
   border-collapse: collapse;
   /* margin-right: 200px; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .custom-table th, .custom-table td {
+  .feedbackpagegivenmanager-custom-table th, .custom-table td {
   padding: 5px;
   text-align: left;
   border-bottom: 0.5px solid #ddd;
   line-height: 1.2;
   }
   
-  .custom-table th {
+  .feedbackpagegivenmanager-custom-table th {
   /* background-color: rgb(10, 102, 222); */
   color: rgb(8, 8, 8);
   background-image: url("https://images.unsplash.com/photo-1701221238491-d5247ff7abcc?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   /* color: white; */
   }
   
-  .custom-table tbody tr:hover {
+  .feedbackpagegivenmanager-custom-table tbody tr:hover {
   background-color: #f5f5f5;
   }
-  .small-input1{
+  .feedbackpagegivenmanager-small-input1{
   width: 80px;
   padding: 8px;
   box-sizing: border-box;

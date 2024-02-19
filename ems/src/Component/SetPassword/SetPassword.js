@@ -129,7 +129,7 @@ export default function SetPassword() {
     if (isPasswordValid && doPasswordsMatch) {
       try {
         // Make a PUT API call to set the password
-        const response = await fetch(`http://localhost:8080/resetPassword/${username}/${pass}`, {
+        const response = await fetch(` https://ems-backend-production-3f3d.up.railway.app/resetPassword/${username}/${pass}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -220,7 +220,7 @@ export default function SetPassword() {
         </div>
         <div className="pas-not-match">
           {errors.password && (
-            <div className="error-message">{errors.password}</div>
+            <div className="set-password-error-message">{errors.password}</div>
           )}
         </div>
         <div className="setpass-submit-button-div">

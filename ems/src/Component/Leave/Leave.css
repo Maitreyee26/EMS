@@ -1,0 +1,104 @@
+/* LeavePage.Leave-css */
+.Leave-leave-page {
+    padding: 20px;
+    margin-left: 160px;
+    /* margin-top: 20px; */
+  }
+.Leave-leave-upper-section{
+    display: flex;
+    /* margin-top: 70px; */
+    gap:50px;
+    margin-left: 30px;
+    /* border: 2px solid red; */
+    
+}
+.Leave-chart-for-leave{
+margin-left: 10px;
+box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+width: 270px;
+padding:10px ;
+}
+
+.Leave-chart-for-consumed-leave{
+  /* margin-left: 40px; */
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+  width: 270px;
+  padding:10px ;
+}
+.Leave-chart-for-total-leave{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+  width: 270px;
+  padding:10px ;
+}
+.Leave-leave-request-button-section{
+  /* box-shadow: 0 2px 5px rgba(3, 3, 3, 0.Leave-653); */
+  display: flex;
+  width: 270px;
+  padding:10px ;
+  margin-left: 680px;
+  height: 50px;
+  margin-bottom: 20px;
+  
+  /* float: right; */
+}
+/* .Leave-leave-headings{
+
+  font-size: 20px;
+
+  width:300px;
+  padding: 8px;
+  padding-bottom: 0;
+
+} */
+.Leave-pending-leave-request{
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+}
+.Leave-leave-policy{
+  margin-left: 40px;
+
+}
+.Leave-leave{
+  background-color: rgb(10, 102, 222);
+  color: white;
+  border: none;
+  border-radius:20px;
+  height: 40px;
+  width: 150px;
+  font-size: 14px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+ margin-left: 100px;
+ /* margin-top: -80px; */
+ float: right;
+ font-weight: bold;
+}
+.Leave-leave:hover{
+    background: linear-gradient(to right, blue, rgb(198, 121, 231));
+    font-weight: bold;
+   
+}
+  
+.Leave-Leave-headings{
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.Leave-i-icon{
+  width: 10px;
+  font-size: large;
+  margin-right: -60px;
+  
+}
+.Leave-hover-text{
+  position: absolute;
+  padding: 10px;
+
+  transform: translateY(-80%);
+  right: 30%;
+  top:28%;
+  color: rgb(76, 76, 252);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

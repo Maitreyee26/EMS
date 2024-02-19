@@ -1,4 +1,4 @@
-.dropdown {
+.about-my-details-dropdown {
     position: relative;
     display: inline-block;
 }
@@ -12,7 +12,7 @@
     cursor: pointer;
 } */
 
-.dropdown-menu {
+.about-my-details-dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -23,12 +23,12 @@
     display: none;
 }
 
-.dropdown:hover .dropdown-menu {
+.about-my-details-dropdown:hover .dropdown-menu {
     display: block;
 }
 
 
-.spinner {
+.about-my-details-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #3498db;
     border-radius: 50%;

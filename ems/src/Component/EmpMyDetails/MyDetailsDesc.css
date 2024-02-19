@@ -109,7 +109,7 @@ body::before {
   font-size: 16px;
   padding: 10px;
   display: block;
-  width: 80%;
+  width: 70%;
   border: none;
   border-bottom: 2px solid #515151;
   background: transparent;
@@ -224,44 +224,3 @@ margin-left:20px;
   width:fit-content;
   margin-left:400px;
 }
-@media screen and (max-width: 768px) {
-  .details-grid-container {
-    grid-template-columns: 1fr; /* Change to a single column layout */
-    height: 100%; /* Adjust height as needed */
-    padding: 0 10px; /* Add padding to the sides */
-  }
-
-  .details-grid-item {
-    height: 300px;
-  }
-  .mydetailsdesc-label{
-    width:207px;
-    /* border:1px solid red; */
-    text-align:left;
-  }
-  .mydetailsdesc-details{
-    width: 100px;
-   
-    margin-left: 35px;
-    text-align: left;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .my-details-permanent-add{
-    width: 100px;
-    margin-left: 35px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .details-main-div {
-    margin-left: 10px; /* Adjust margin for smaller screens */
-    margin-right: 10px;
-  }
-
-  .details-grid-item {
-    /* Further adjustments for smaller screens */
-  }
-}
-

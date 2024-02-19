@@ -1,38 +1,46 @@
-.header-sub {
+
+.subheaderemp-header-sub {
     height: 50px;
     color: white;
     width: 89.5%;
-    margin-top: 70px;
-    margin-left: 125px;
+    /* //margin-top: 50px; */
+    margin-left: 120px;
     left: 0;
     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
+    margin-bottom: 75px;
   }
-  .subheader-content{
+  
+  .subheaderemp-subheader-content {
     color: black;
+    margin-bottom: 30px;
   }
-  .each-content{
+  
+  .subheaderemp-each-content,
+  .subheader-emp-select {
     padding: 5px;
     border: none;
     border-bottom: 2px solid blue;
-    background:none ;
+    background: none;
     font-size: small;
     font-weight: 500;
     margin-left: 20px;
   }
-  .each-content:hover{
-    background:#d8d4d8;
+  
+  .subheaderemp-each-content:hover,
+  select:hover {
+    background: #d8d4d8;
     color: black;
     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
     border: none;
     border-radius: 5px;
   }
-  .each-content.active {
-    background:#d8d4d8;
+  
+  .subheaderemp-each-content.active,
+  select:active,
+  select.active {
+    background: #d8d4d8;
     color: black;
-    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
     border: none;
     border-radius: 5px;
   }
-
-
-
+  

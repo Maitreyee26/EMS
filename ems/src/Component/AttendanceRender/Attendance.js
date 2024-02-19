@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import WeeklyAttendancePieChart from "./WeeklyAttendancePieChart";
+import YearlyPieCharts from "./YearlyPieCharts.js";
 import MonthlyAttendancePieChart from "./MonthlyAttendancePieChart";
-import ProgressBar from "react-bootstrap/ProgressBar";
+// import ProgressBar from "react-bootstrap/ProgressBar";
 import "./Attendance.css";
-import Shift1 from "./Shift1";
-import Shift2 from "./Shift2";
+
+import Shift from "./Shift.js";
 import DigitalClock from "./DigitalClock";
 import TableForAttendance from "./TableForAttendance";
 import LeavePopup from "../Popup-screens/LeavePopup.js";
 import LabelComponent from "../LabelComponentRen/LabelComponent.js";
 import LocationForAttendance from "./LocationForAttendance";
 import { FaLocationDot } from "react-icons/fa6";
-import { useAuth } from "../AuthContext";
-// import { Tooltip } from "react-tooltip";
+import { useAuth } from "../AuthContext.js";
 import axios from "axios";
 
 const Attendance = () => {
   const [attendanceData, setAttendanceData] = useState([]);
+  const [employeeData, setEmployeeData] = useState([]);
+  const [Log, setLog] = useState("");
   const [currentDateGrossHours, setCurrentDateGrossHours] = useState(0);
   const [selectedShiftComponent, setSelectedShiftComponent] = useState(null);
   const [isRequestingLeave, setIsRequestingLeave] = useState(false);
   const [showLocationComponent, setShowLocationComponent] = useState(false);
   const [currentLocation, setCurrentLocation] = useState("");
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
+  const{empId}=useAuth();
   const [selectedStat, setSelectedStat] = useState({
     value: "Monthly",
     label: "Monthly Attendance Stats",
@@ -33,6 +35,8 @@ const Attendance = () => {
     new Date().getDay()
   );
   // const [selectedMode, setSelectedMode] = useState(null);
+  const [timerId, setTimerId] = useState(null);
+  const [timerRef, setTimerRef] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -40,7 +44,7 @@ const Attendance = () => {
   const [estimateElapsedTime, setEstimateElapsedTime] = useState(0);
   const [selectedMode, setSelectedMode] = useState("");
   const [clockStatus, setClockStatus] = useState("Clock In");
-  const { empId } = useAuth();
+
   const [leaveDetails, setLeaveDetails] = useState({
     startDate: "",
     endDate: "",
@@ -55,14 +59,51 @@ const Attendance = () => {
   ];
   // console.log(modes);
 
-console.log(empId);
-  const handleLocationChange = (location) => {
-    // Handle the location change if needed in the parent component
-    console.log("Location changed:", location);
+  const extractShiftStartTime = (shiftTimeString) => {
+    const startTimeMatch = shiftTimeString.match(/(\d{1,2}:\d{2}[APMapm]+)/); // Extract time portion
+    if (startTimeMatch) {
+      const formattedTime = startTimeMatch[0];
+      return formattedTime; // Return the extracted time
+    }
+    return null; // Handle error or return a default value
+  };
+  // console.log(extractShiftStartTime("9:30am - 6:30pm"));
+  const subtractTimes = (time1, time2) => {
+    const date1 = new Date(`2022-01-01T${time1}`);
+    const date2 = new Date(`2022-01-01T${time2}`);
+
+    const differenceInMilliseconds = date1 - date2;
+
+    // Convert the difference to your desired format
+    const resultHours = Math.floor(differenceInMilliseconds / 3600000);
+    const resultMinutes = Math.floor(
+      (differenceInMilliseconds % 3600000) / 60000
+    );
+
+    return `${resultHours}:${String(resultMinutes).padStart(2, "0")}`;
   };
 
+  const extractTimeAmPm = (timestamp) => {
+    const dateObject = new Date(timestamp);
+    const hours = dateObject.getHours();
+    const minutes = dateObject.getMinutes();
+    const formattedTime = `${hours % 12}:${minutes < 10 ? "0" : ""}${minutes}${
+      hours >= 12 ? "pm" : "am"
+    }`;
+    return formattedTime;
+  };
+  // console.log(subtractTimes(extractShiftStartTime("9:30am - 6:30pm"),extractTimeAndAmPm("2024-01-27 18:59:09.145767")));
+
+  // console.log(extractTimeAndAmPm("2024-01-27 18:59:09.145767"));
+  // const handleLocationChange = (location) => {
+  //   // Handle the location change if needed in the parent component
+  //   console.log("Location changed:", location);
+  // };
+
   const fetchAttendanceData = (empId) => {
-    fetch(`http://localhost:8080/getAttendanceOfEmp/${empId}`)
+    fetch(
+      `https://ems-backend-production-3f3d.up.railway.app/getAttendanceOfEmp/${empId}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -77,37 +118,71 @@ console.log(empId);
         console.error("Error fetching attendance data:", error.message);
       });
   };
+  useEffect(() => {
+    fetchAttendanceData(1);
+
+    // ... (other useEffect logic)
+  }, []);
+  console.log("all attendance ", attendanceData);
+  const fetchEmployeeData = (empId) => {
+    fetch(
+      `https://ems-backend-production-3f3d.up.railway.app/findEmployeeById/${empId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+        return response.json(); // Assuming the response is JSON
+      })
+      .then((data) => {
+        console.log("Employee Data:", data);
+        setEmployeeData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching employee data:", error.message);
+      });
+  };
+  useEffect(() => {
+    fetchEmployeeData(1);
+
+    // ... (other useEffect logic)
+  }, []);
+
+  console.log(employeeData.shift);
+  //  const shift = employeeData.shift;
 
   const handleModeChange = (selectedOption) => {
-    // const selectedMode = selectedOption.value;
     setSelectedMode(selectedOption.value);
 
-    console.log(selectedOption.value);
-    if (selectedOption.value && !startTime) {
+    if (selectedOption.value && !startTime && clockStatus === "Clock In") {
       setStartTime(new Date().getTime());
       setEstimateStartTime(new Date().getTime());
-      setShowLocationComponent(true); // Show location component when mode is selected
+      setShowLocationComponent(true);
     } else if (!selectedOption.value && startTime) {
       setStartTime(null);
       setEstimateStartTime(null);
       setEndTime(null);
-      setShowLocationComponent(false); // Hide location component when mode is not selected
+      setShowLocationComponent(false);
     }
   };
 
   const calculateGrossHours = () => {
-    if (startTime && !endTime) {
-      // If still running, display "In Progress"
+    if (startTime) {
+      const currentTime = endTime || new Date().getTime();
+      const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
 
-      return "In Progress";
-    } else if (startTime && endTime) {
-      const grossHoursInSeconds = Math.floor((endTime - startTime) / 1000);
-
-      return formatTime(grossHoursInSeconds);
+      return formatTime(elapsedSeconds);
     }
 
     return "00:00:00";
   };
+
   const handleClockButtonClick = () => {
     console.log("Selected Mode:", selectedMode);
 
@@ -120,51 +195,61 @@ console.log(empId);
     }
 
     if (clockStatus === "Clock In") {
-      setEndTime(null); // Reset end time when clocking in
+      setEndTime(null);
       setStartTime(new Date().getTime());
       setEstimateStartTime(new Date().getTime());
-      setShowLocationComponent(true); // Show location component when clocking in
+      setShowLocationComponent(true);
+
+      // Start the timer only when the Clock In button is clicked
+      const timer = setInterval(() => {
+        const currentTime = new Date().getTime();
+        const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+        setElapsedTime(elapsedSeconds);
+      }, 1000);
+
+      setTimerRef(timer);
+
       setClockStatus("Clock Out");
       // Call clockIn function directly
       clockIn(selectedMode);
 
       updateGrossHoursForCurrentDate(0);
-    } else {
+      // Cookies.set("clockStatus", "Clock Out");
+      // Cookies.set("startTime", startTime.toString());
+    } 
+    else {
       // If clocking out, set the end time
       setEndTime(new Date().getTime());
-      setShowLocationComponent(false); // Hide location component when clocking out
+      setShowLocationComponent(false);
+
+      // Clear the timer when clocking out
+      clearInterval(timerRef);
+      setTimerRef(null);
       setClockStatus("Clock In");
 
       // Call clockOut function directly
       clockOut();
       updateGrossHoursForCurrentDate(calculateGrossHours());
       setCurrentDateGrossHours(calculateGrossHours());
+      // Remove data from cookies on clock out
+      // Cookies.set("clockStatus", "Clock In");
+      // Cookies.remove("startTime");
+
     }
+
   };
-  // const handleLocationChange = (location) => {
-  //   setCurrentLocation(location);
+  // const updateGrossHoursForCurrentDate = (grossHours) => {
+  //   setCurrentDateGrossHours(grossHours);
+ 
+  //   // Store gross hours in cookies
+  //   Cookies.set('grossHours', grossHours);
   // };
 
-  // const getLocation = () => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => {
-  //         const latitude = position.coords.latitude;
-  //         const longitude = position.coords.longitude;
+  useEffect(() => {
+    fetchAttendanceData(1);
 
-  //         // Set the current location in the state
-  //         setCurrentLocation(`${latitude},${longitude}`);
-  //       },
-  //       (error) => {
-  //         console.error("Error getting location:", error);
-  //         // Handle errors if any
-  //       }
-  //     );
-  //   } else {
-  //     console.error("Geolocation is not supported by this browser.");
-  //     // Handle the case when geolocation is not supported
-  //   }
-  // };
+    // ... (other useEffect logic)
+  }, []);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -172,13 +257,13 @@ console.log(empId);
         async (position) => {
           try {
             const { latitude, longitude } = position.coords;
-  
+
             // Get the location name using the Nominatim API
             const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18`;
-  
+
             const response = await axios.get(apiUrl);
             const address = response.data.display_name;
-  
+
             // Set the current location in the state
             setCurrentLocation(address);
           } catch (error) {
@@ -190,12 +275,27 @@ console.log(empId);
         }
       );
     } else {
-      setError('Geolocation is not supported by your browser');
+      setError("Geolocation is not supported by your browser");
     }
   };
-  
 
   useEffect(() => {
+    // const storedStatus = Cookies.get("clockStatus");
+    // if (storedStatus) {
+    //   setClockStatus(storedStatus);
+    // }
+
+    // Retrieve other necessary data...
+    // const storedGrossHours = Cookies.get("grossHours");
+    // if (storedGrossHours) {
+    //   setCurrentDateGrossHours(storedGrossHours);
+    // }
+
+    // // Retrieve start time from sessionStorage
+    // const storedStartTime = sessionStorage.getItem("startTime");
+    // if (storedStartTime) {
+    //   setStartTime(parseInt(storedStartTime));
+    // }
     // Fetch the current location when the component mounts
     getLocation();
   }, []);
@@ -204,15 +304,97 @@ console.log(empId);
     setCurrentDateGrossHours(grossHours);
   };
 
+  // const compareTimes = (time1, time2) => {
+  //   // Convert time strings to comparable format
+  //   const date1 = new Date(`2022-01-01T${time1}`);
+  //   const date2 = new Date(`2022-01-01T${time2}`);
+
+  //   // Compare dates
+  //   if (date1 < date2) {
+  //     return -1; // time1 is earlier
+  //   } else if (date1 > date2) {
+  //     return 1; // time1 is later
+  //   } else {
+  //     return 0; // times are equal
+  //   }
+  // };
+
+  // function parseTime(time) {
+  //   const [timePart, ampm] = time.split(' ');
+  //   const [hours, minutes] = timePart.split(':').map(Number);
+
+  //   return [hours, minutes, ampm];
+  // }
+  //  const logindata = attendanceData.loginDateAndTime;
+  //  console.log("new login ",attendanceData.loginDateAndTime );
+
   const clockIn = (selectedMode) => {
     console.log("Selected Mode:", selectedMode);
 
     const modeInt = parseInt(selectedMode, 10);
+    const shiftStartTimeString = employeeData.shift;
+    const shiftStartTime = extractShiftStartTime(shiftStartTimeString);
+    // console.log(shiftStartTime);
+    // const loginTime = extractTimeAmPm(attendanceData.loginDateAndTime);
+    // console.log(attendanceData.loginDateAndTime);
+    // console.log(loginTime);
 
-    if (!isNaN(modeInt)) {
-      // Use the selected mode when making the API call
+    // const loginTime = extractedData.slice(-1);
+    const extractedData = attendanceData.map((entry) => {
+      const loginTime = extractTimeAmPm(entry.loginDateAndTime);
+      //  console.log("hii ",loginTime);
+      return loginTime;
+    });
+    console.log(extractedData[extractedData.length - 1]);
+    const loginTime = extractedData[extractedData.length - 1];
+
+    function compareArrivalTimes(
+      expectedArrivalTimeString,
+      actualArrivalTimeString
+    ) {
+      // Function to convert string to time
+      function convertStringToTime(timeString) {
+        const [time, period] = timeString
+          .split(/([0-9:]+)([aApPmM]{2})/)
+          .filter(Boolean);
+        const [hours, minutes] = time.split(":").map(Number);
+        const adjustedHours =
+          period.toLowerCase() === "pm" && hours !== 12 ? hours + 12 : hours;
+        const currentDate = new Date();
+        return new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDate(),
+          adjustedHours,
+          minutes
+        );
+      }
+
+      // Convert expected and actual arrival times to Date objects
+      const expectedArrivalTime = convertStringToTime(
+        expectedArrivalTimeString
+      );
+      const actualArrivalTime = convertStringToTime(actualArrivalTimeString);
+
+      // Check if actual arrival time is on time or late
+      // const isOnTime = actualArrivalTime <= expectedArrivalTime;
+
+      // Return the result
+      return {
+        expectedArrivalTime,
+        actualArrivalTime,
+        // isOnTime,
+      };
+    }
+
+    // Example usage
+    const comparisonResult = compareArrivalTimes(shiftStartTime, loginTime);
+    if (
+      comparisonResult.actualArrivalTime <= comparisonResult.expectedArrivalTime
+    ) {
+      console.log("User clocked in On time");
       fetch(
-        `http://localhost:8080/addAttendance/${empId}/${currentLocation}/${modeInt}`,
+        `https://ems-backend-production-3f3d.up.railway.app/addAttendance/${empId}/${currentLocation}/${modeInt}/On%20Time`, // Directly set the value "On Time"
         {
           method: "POST",
           headers: {
@@ -229,55 +411,96 @@ console.log(empId);
               `Error: ${response.status} - ${response.statusText}`
             );
           }
-          return response.text(); // Change to response.text() if the server sends plain text
+          return response.text();
         })
         .then((data) => {
           console.log("Clock-in successful", data);
           setClockStatus("Clock Out");
-
-          fetchAttendanceData(empId);
+          fetchAttendanceData(1);
         })
         .catch((error) => {
           console.error("Error during clock-in:", error.message);
         });
-      console.log("Clock In Clicked");
     } else {
-      console.error("Invalid mode selected");
+      console.log("User had a Late Arrival");
+      fetch(
+        `https://ems-backend-production-3f3d.up.railway.app/addAttendance/${empId}/${currentLocation}/${modeInt}/Late%20Arrival`, // Directly set the value "Late arrival"
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            loginDateAndTime: startTime,
+          }),
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `Error: ${response.status} - ${response.statusText}`
+            );
+          }
+          return response.text();
+        })
+        .then((data) => {
+          console.log("Clock-in successful", data);
+          setClockStatus("Clock Out");
+          fetchAttendanceData(1);
+        })
+        .catch((error) => {
+          console.error("Error during clock-in:", error.message);
+        });
     }
+    console.log("Clock In Clicked");
   };
 
   const clockOut = () => {
-    fetch(`http://localhost:8080/addLogoutDateAndTime/${empId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        logout_date_and_time: endTime,
-      }),
-    })
+    // const grossHours = clockStatus === "Clock In" ? 0 : calculateGrossHours();
+    const grossHours = calculateGrossHours();
+    // Assuming loginDateAndTime is the time when the employee clocked in
+    const loginDateAndTime = startTime;
+
+    fetch(
+      `https://ems-backend-production-3f3d.up.railway.app/addLogoutDateAndTime/${empId}/${grossHours}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          logout_date_and_time: endTime,
+          loginDateAndTime: loginDateAndTime,
+        }),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }
-        return response.text(); // Change to response.text() to handle plain text
+        return response.text();
       })
       .then((data) => {
         console.log("Clock-out successful", data);
         setClockStatus("Clock In");
 
-        fetchAttendanceData(empId) ;
-        updateGrossHoursForCurrentDate(calculateGrossHours());
+        fetchAttendanceData(1);
+
+        if (clockStatus !== "Clock In") {
+          updateGrossHoursForCurrentDate(grossHours);
+        }
       })
       .catch((error) => {
         console.error("Error during clock-out:", error);
       });
     console.log("Clock Out Clicked");
   };
-  useEffect(() => {
-    fetchAttendanceData(empId); // Replace 1 with the actual employee ID
-    // ... (other useEffect logic)
-  }, []);
+
+  // useEffect(() => {
+  //   fetchAttendanceData(1); // Replace 1 with the actual employee ID
+
+  //   // ... (other useEffect logic)
+  // }, []);
 
   const handleLeaveInputChange = (field, value) => {
     setLeaveDetails({
@@ -363,24 +586,34 @@ console.log(empId);
   };
 
   const stats = [
-    { value: "Weekly", label: "Yearly Attendance Stats" },
+    { value: "yearly", label: "Yearly Attendance Stats" },
     { value: "Monthly", label: "Monthly Attendance Stats" },
   ];
 
- 
-
-  useEffect(() => {
-   
-  }, []);
+  useEffect(() => {}, []);
 
   const handleStatChange = (selectedOption) => {
     setSelectedStat(selectedOption);
-   
   };
 
-  const handleShift1 = () => {
+  // const handleShift1 = () => {
+  //   setSelectedShiftComponent(
+  //     <Shift1
+  //       style={{
+  //         height: "250px",
+  //         width: "250px",
+  //         margin: "20px",
+  //         marginLeft: "26px",
+  //       }}
+  //     />
+  //   );
+  // };
+
+  const handleShift = (day) => {
+    // Set the selected shift component based on the day
     setSelectedShiftComponent(
-      <Shift1
+      <Shift
+        employeeData={employeeData}
         style={{
           height: "250px",
           width: "250px",
@@ -390,28 +623,13 @@ console.log(empId);
       />
     );
   };
-
-  const handleShift2 = () => {
-    setSelectedShiftComponent(
-      <Shift2
-        style={{
-          height: "250px",
-          width: "250px",
-          margin: "20px",
-          marginLeft: "26px",
-        }}
-      />
-    );
-  };
-
+  // setDefaultSelectedDay( new Date().getDay());
   useEffect(() => {
-    const defaultDayButton = document.getElementById(
-      `shift${defaultSelectedDay}`
-    );
-    if (defaultDayButton) {
-      defaultDayButton.click();
-    }
-  }, [defaultSelectedDay]);
+    // Set the default day and trigger the handleShift function
+    const defaultDay = new Date().getDay();
+    setDefaultSelectedDay(defaultDay);
+    handleShift(defaultDay);
+  }, []); // Empty dependency array ensures it runs only once on mount
 
   const handleSaveLeaveDetails = () => {
     console.log("Saving Leave Details", leaveDetails);
@@ -423,94 +641,110 @@ console.log(empId);
     setIsRequestingLeave(false);
   };
 
-  useEffect(() => {
-    const defaultDayButton = document.getElementById(
-      `shift${defaultSelectedDay}`
-    );
-    if (defaultDayButton) {
-      defaultDayButton.click();
-      defaultDayButton.classList.add("selected-day"); // Add a class for selected day
-    }
-  }, [defaultSelectedDay]);
+  // useEffect(() => {
+  //   const defaultDayButton = document.getElementById(
+  //     `shift${defaultSelectedDay}`
+  //   );
+  //   if (defaultDayButton) {
+  //     defaultDayButton.click();
+  //     defaultDayButton.classList.add("selected-day"); // Add a class for selected day
+  //   }
+  //   console.log("defaultSelectedDay ",defaultSelectedDay);
+  // }, [defaultSelectedDay]);
 
   return (
-    <div className="attendance-main-div">
-      <div className="attendance-clockin">
-        <div className="attendance-stats-container">
-          <label className="attandence-headings">Attendance Stats</label>
+    <div className="Attendance-attendance-main-div">
+      <div className="Attendance-attendance-clockin">
+        <div className="Attendance-attendance-stats-container">
+          <label className="Attendance-attandence-headings">
+            Attendance Stats
+          </label>
           <Select
             options={stats}
             value={selectedStat}
             onChange={handleStatChange}
-            className="attendance-stats-dropdown"
+            className="Attendance-attendance-stats-dropdown"
           />
-          {selectedStat?.value === "Weekly" && <WeeklyAttendancePieChart />}
+
+          {selectedStat?.value === "yearly" && <YearlyPieCharts />}
           {selectedStat?.value === "Monthly" && <MonthlyAttendancePieChart />}
         </div>
-        <div className="timming">
-          <label className="attandence-headings">Attendance Timing</label>
-          <div className="attendance-shift-buttons">
+        <div className="Attendance-timming">
+          <label className="Attendance-attandence-headings">
+            Attendance Timing
+          </label>
+          <div className="Attendance-attendance-shift-buttons">
             <button
               id="shift1"
-              className={`shiftdays ${
-                defaultSelectedDay === 1 ? "selected-day" : ""
+              className={`Attendance-shiftdays ${
+                defaultSelectedDay === 1 ? "Attendance-selected-day" : ""
               }`}
-              onClick={handleShift1}
+              onClick={handleShift}
             >
               Mon
             </button>
             <button
               id="shift2"
-              className={`shiftdays ${
-                defaultSelectedDay === 2 ? "selected-day" : ""
+              className={`Attendance-shiftdays ${
+                defaultSelectedDay === 2 ? "Attendance-selected-day" : ""
               }`}
-              onClick={handleShift2}
+              onClick={handleShift}
             >
               Tue
             </button>
             <button
               id="shift3"
-              className={`shiftdays ${
-                defaultSelectedDay === 3 ? "selected-day" : ""
+              className={`Attendance-shiftdays ${
+                defaultSelectedDay === 3 ? "Attendance-selected-day" : ""
               }`}
-              onClick={handleShift1}
+              onClick={handleShift}
             >
               Wed
             </button>
             <button
               id="shift4"
-              className={`shiftdays ${
-                defaultSelectedDay === 4 ? "selected-day" : ""
+              className={`Attendance-shiftdays ${
+                defaultSelectedDay === 4 ? "Attendance-selected-day" : ""
               }`}
-              onClick={handleShift2}
+              onClick={handleShift}
             >
               Thu
             </button>
             <button
               id="shift5"
-              className={`shiftdays ${
-                defaultSelectedDay === 5 ? "selected-day" : ""
+              className={`Attendance-shiftdays ${
+                defaultSelectedDay === 5 ? "Attendance-selected-day" : ""
               }`}
-              onClick={handleShift1}
+              onClick={handleShift}
             >
               Fri
             </button>
-            <button id="shift6" className="shiftdays" disabled>
+            <button id="shift6" className="Attendance-shiftdays" disabled>
               Sat
             </button>
-            <button id="shift7" className="shiftdays" disabled>
+            <button id="shift7" className="Attendance-shiftdays" disabled>
               Sun
             </button>
           </div>
-          {selectedShiftComponent}
+          {/* {selectedShiftComponent} */}
+          <Shift
+            style={{
+              height: "250px",
+              width: "250px",
+              margin: "20px",
+              marginLeft: "26px",
+            }}
+          />
         </div>
 
-        <div className="clock-in-buttons">
-          <label className="attandence-headings">Attendance Actions</label>
-          <div className="clock-for-clockin">
+        <div className="Attendance-clock-in-buttons">
+          <label className="Attendance-attandence-headings">
+            Attendance Actions
+          </label>
+          <div className="Attendance-clock-for-clockin">
             <DigitalClock />
           </div>
-          <div className="h-o-r">
+          <div className="Attendance-h-o-r">
             <LabelComponent
               inputType="select"
               options={modes}
@@ -520,25 +754,25 @@ console.log(empId);
             />
 
             <div
-              className="location-details"
+              className="Attendance-location-details"
               onMouseEnter={() => setShowLocationComponent(true)}
               onMouseLeave={() => setShowLocationComponent(false)}
             >
-              <FaLocationDot className="attendance-location-icon" />
+              <FaLocationDot className="Attendance-attendance-location-icon" />
               {showLocationComponent && clockStatus === "Clock Out" && (
                 <LocationForAttendance />
               )}
             </div>
           </div>
 
-          <div className="estimate-gross">
+          <div className="Attendance-estimate-gross">
             <p>
               Gross Hours: <br />
               {calculateGrossHours()}
             </p>
             <button
               id="clock-button"
-              className="clockin-clockout-button"
+              className="Attendance-clockin-clockout-button"
               onClick={handleClockButtonClick}
             >
               {clockStatus}
@@ -546,10 +780,13 @@ console.log(empId);
           </div>
         </div>
       </div>
-      <div className="attandance-table" style={{marginTop:"50px"}}>
+      <div
+        className="Attendance-attandance-table"
+        style={{ marginTop: "50px" }}
+      >
         <TableForAttendance
-        attendanceData={attendanceData}
-        
+          attendanceData={attendanceData}
+          employeeData={employeeData}
         />
       </div>
     </div>
@@ -557,5 +794,3 @@ console.log(empId);
 };
 
 export default Attendance;
-
-

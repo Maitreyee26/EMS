@@ -23,7 +23,8 @@ import SubHeaderForOrgRen from './Component/SubHeaderForOrg/SubHeaderForOrgRen';
 import { AuthProvider} from './Component/AuthContext';
 import TaskAssignRen from './Component/TaskAssign/TaskAssignRen';
 import AttendanceRen from './Component/AttendanceRender/AttendanceRen';
-import PerformanceByManagerRen from './Component/PerformanceByManager/PerformanceByManagerRen';
+import PerformanceRen from './Component/PerformanceRen/PerformanceRen';
+import LeaveRen from './Component/SubHeaderAttendance/LeaveRen';
 // import Attendance from './Component/AttendanceRender/Attendance'
 // import Demo from './Component/Demo';
 // import BarchartForLeave from './Component/BarchartForLeave';
@@ -43,13 +44,13 @@ function App() {
      <Router>
       < AuthProvider>
     <Routes>
-          {/* <Route path="/AdminProfile" exact element={<AdminProfilePageRen/>} /> */}
-         <Route path="/admin/org" element={<SubHeaderForOrgRen/>} />
+         
+       <Route path="/admin/org" element={<SubHeaderForOrgRen/>} />
          <Route path="/addEmployee" element={<EmpRegiRen/>} />
          <Route path="/" element={<LoginRen onEmpIdChange={handleEmpIdChange} />} />
-        {/* <Route path="/home" element={<DashboardRen empId={empId} />} /> */}
+        
         <Route path="/home" element={<DashboardRen empId={empId} employeeType={employeeType} jobId={jobId} />} />
-         <Route path="/homei" element={<EmpMyDetailsRen/>} />
+       
          <Route path="/emp/uploadDocument" element={<EmpDocumentsRen/>} />
 
          <Route path="/otp/:username" element={<OtpRen />} />
@@ -58,9 +59,10 @@ function App() {
          <Route path="/admin/performance" element={<PerformanceByManagerRen/>}/>
          <Route path="/Myprofilepage" element={<EmpMyDetailsRen/>} />
          <Route path="/emp/taskassign" element={<TaskAssignRen/>} />
-         <Route path="/emp/attendance" element={<AttendanceRen/>} />
+         <Route path="/emp/attendance" element={<AttendanceRen/>} /> 
             {/* <Route path="/home" element={<DashboardRen empId={empId} />}/> */}
-            {/* <Route path="/" element={<SubHeaderForOrgRen/>} /> */}
+            {/* <Route path="/performance" element={<PerformanceRen/>} />*/}
+         
        </Routes> 
        </ AuthProvider>
     </Router> 

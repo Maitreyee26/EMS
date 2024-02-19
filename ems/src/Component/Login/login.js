@@ -1,78 +1,4 @@
-// import React, { useState } from "react";
-// import "./login.css";
 
-// const Login = () => {
-//   const [username, setUsername] = useState("");
-//   const [errors, setErrors] = useState({ username: "" });
-
-//   const handleUsernameChange = (event) => {
-//     setUsername(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-
-//     const errors = {};
-
-//     if (!username) {
-//       errors.username = "Username is required";
-//     }
-
-//     if (Object.keys(errors).length) {
-//       setErrors(errors);
-//       return;
-//     }
-
-//     // Make an API call or perform other login logic
-//   };
-
-//   return (
-//     <div className="login-container">
-//       <h2>Login to Pursuit Software</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-group login-label-input">
-//           <label className="login-label" htmlFor="username">
-//             Username:
-//           </label>
-//           <input
-//             type="text"
-//             id="username"
-//             placeholder="Username"
-//             name="username"
-//             required
-//             value={username}
-//             onChange={handleUsernameChange}
-//           />
-//           {errors.username && <span className="error">{errors.username}</span>}
-//         </div>
-
-//         <div className="form-group login-label-input">
-//           <label className="login-label" htmlFor="password">Password:</label>
-//           <input
-//             type="password"
-//             id="password"
-//             placeholder="Type password"
-//             name="password"
-//             required
-//             value="" // Password field value is emptied
-//             onChange={() => {}} // Password change handler is disabled
-//           />
-//           {errors.password && <span className="error">{errors.password}</span>}
-//         </div>
-
-//         <button type="submit" className="login-btn">
-//           Login
-//         </button>
-//       </form>
-//       <a href="forgot.js" className="forgot-password">
-//         Forgot Password?
-//       </a>
-//       <br />
-//     </div>
-//   );
-// };
-
-// export default Login;
 import React, {useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./login.css";
@@ -131,7 +57,8 @@ const Login = ()=> {
   
     try {
       // Make an API call to authenticate the user
-      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployee/${username}/${password}`, {
+      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployee/${username}/${password}`,
+   {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -146,7 +73,8 @@ const Login = ()=> {
           // Admin user
           console.log("Admin user authenticated");
           const emailResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployeeByEmail/${username}`, {
-            method: "GET",
+        
+          method: "GET",
             headers: {
               "Content-Type": "application/json",
             },
@@ -166,6 +94,7 @@ const Login = ()=> {
 
           console.log("Empolyee authenticated");
           const emailResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findEmployeeByEmail/${username}`, {
+          // const emailResponse = await fetch(`https://localhost:8080/findEmployeeByEmail/${username}`,{
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -181,21 +110,6 @@ const Login = ()=> {
           setempId(employeeData.empId);
           setJobId( employeeData.jobRoleEntity.job_id);
           setEmployeeType( employeeData.employeeType.employeeTypeId);
-          // onEmpIdChange(employeeData.empId);
-          // console.log("empid",empid);
-          // setUser({
-          //   empId: employeeData.empId,
-          //   username: username,
-          // });
-         
-          // navigate('/home');
-          // navigate('/AdminProfile'); 
-          // Perform actions specific to regular user
-          // setUser({
-          //   empId: data.empId, // Assuming empId is available in the API response
-          //   username: username,
-          
-          // });
         } 
        else {
         // Authentication failed, handle errors

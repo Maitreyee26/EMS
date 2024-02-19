@@ -70,10 +70,10 @@ const AchievementDocument = () => {
   };
   const pdfPreviewSection =
     certificateFile && certificateFile.type.toLowerCase().includes("pdf") ? (
-      <div className="pdf-preview-section">
+      <div className="achievementdoc-pdf-preview-section">
         <iframe
           title="PDF Preview"
-          className="pdf-preview-section-iframe"
+          className="achievementdoc-pdf-preview-section-iframe"
           src={URL.createObjectURL(certificateFile)}
         ></iframe>
       </div>
@@ -99,7 +99,7 @@ const AchievementDocument = () => {
         return;
       }
 
-      const apiUrl = `http://localhost:8080/uploadFile/${empId}/${encodeURIComponent(
+      const apiUrl = ` https://ems-backend-production-3f3d.up.railway.app/uploadFile/${empId}/${encodeURIComponent(
         certificateName
       )}/2`;
       const formData = new FormData();
@@ -119,7 +119,7 @@ const AchievementDocument = () => {
         detail: "File uploaded successfully",
       });
        // Fetch file ID again from viewFile endpoint
-       const viewFileResponse = await fetch(`http://localhost:8080/viewFile/${empId}/1`);
+       const viewFileResponse = await fetch(` https://ems-backend-production-3f3d.up.railway.app/viewFile/${empId}/2`);
        const viewFileData = await viewFileResponse.json();
        const keys = Object.keys(viewFileData);
        console.log(viewFileResponse )
@@ -127,7 +127,7 @@ const AchievementDocument = () => {
        setFileId(latestFileId);
    
        // Fetch status using the latest fileId
-       const statusResponse = await fetch(`http://localhost:8080/findStatusById/${latestFileId}`);
+       const statusResponse = await fetch(` https://ems-backend-production-3f3d.up.railway.app/findStatusById/${latestFileId}`);
        const statusData = await statusResponse.text();
      console.log(statusData)// Assuming primaryDetailsStatus represents the status of the newly added document
    
@@ -150,42 +150,42 @@ const AchievementDocument = () => {
   }, [reloadComponent]);
   return (
     <>
-      <div className="main-achievement-upload-document-div">
-        <div className="achievement-certificate-form">
-          <div className="document-type-and-error">
-            <div className="achievement-document-type-column">
-              <label className="achievement-doc-label">Document Name: </label>
+      <div className="main-achievementdoc-upload-document-div">
+        <div className="achievementdoc-certificate-form">
+          <div className="achievementdoc-document-type-and-error">
+            <div className="achievementdoc-document-type-column">
+              <label className="achievementdoc-doc-label">Document Name: </label>
               <input
-                className="achievement-documents-name"
+                className="achievementdoc-documents-name"
                 type="text"
                 placeholder="Document Name"
                 value={certificateName}
                 onChange={handleCertificateNameChange}
               />
             </div>
-            <div className="achievement-error-message-document">
+            <div className="achievementdoc-error-message-document">
               {errors.certificateFile}
             </div>
           </div>
 
-          <div className="achievement-certificate-description-column">
+          <div className="achievementdoc-certificate-description-column">
             <label className="achievement-doc-label">
               Documents Description:{" "}
             </label>
             <textarea
-              className="achievement-documents-name"
+              className="achievementdoc-documents-name"
               placeholder="Documents Description"
               value={certificateDescription}
               onChange={handleCertificateDescriptionChange}
             />
           </div>
-          <div className="achievement-error-message-document">
+          <div className="achievementdoc-error-message-document">
             {/* <p>{errors.description}</p> */}
           </div>
 
-          <div className="achievement-certificate-file-button">
+          <div className="achievementdoc-certificate-file-button">
             <label
-              className="achievement-doc-label"
+              className="achievementdoc-doc-label"
               htmlFor="certificateFile"
               style={{ pointerEvents: "none" }}
             >
@@ -193,21 +193,21 @@ const AchievementDocument = () => {
             </label>
             <button
               onClick={openFileDialog}
-              className="achievement-upload-icon-button"
+              className="achievementdoc-upload-icon-button"
             >
               <MdCloudUpload />
             </button>
 
             <input
               type="text"
-              className="achievement-documents-name"
+              className="achievementdoc-documents-name"
               id="chosenFile"
               placeholder="Upload a file"
               readOnly
             />
 
             <input
-              className="achievement-documents-name"
+              className="achievementdoc-documents-name"
               type="file"
               id="certificateFile"
               style={{ display: "none" }}
@@ -215,20 +215,20 @@ const AchievementDocument = () => {
               onChange={handleCertificateFileChange}
             />
           </div>
-          <div className="achievement-error-message-document">
+          <div className="achievementdoc-error-message-document">
             {errors.file}
           </div>
         </div>
         <div
-          className={`achievement-preview-section ${
-            pdfPreviewSection ? "" : "with-border"
+          className={`achievementdoc-preview-section${
+            pdfPreviewSection ? "" : "-with-border"
           }`}
         >
           {pdfPreviewSection}
           {fileNameSection}
         </div>
       </div>
-      <div className="achievement-certificate-submit-button">
+      <div className="achievementdoc-certificate-submit-button">
         <button
           className="achievement-btn1"
           type="submit"

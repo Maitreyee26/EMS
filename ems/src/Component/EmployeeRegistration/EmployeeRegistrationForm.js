@@ -136,7 +136,7 @@ export default function EmployeeRegistrationForm() {
   useEffect(() => {
     const fetchDepartmentData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/getAllDepartments");
+        const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/getAllDepartments");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -162,7 +162,7 @@ export default function EmployeeRegistrationForm() {
   }, []);
   const fetchReportingManagers = async () => {
     try {
-      const response = await fetch("http://localhost:8080/findAllManagers"
+      const response = await fetch("https://ems-backend-production-3f3d.up.railway.app/findAllManagers"
         
       );
       const data = await response.json();
@@ -498,155 +498,160 @@ export default function EmployeeRegistrationForm() {
     }
   };
   return (
-    <div className="container main-div-form">
-      <div className="reg-header-emp">
+    <div className="container employee-registration-main-div-form">
+      <div className="employee-registration-reg-header-emp">
         <h2>REGISTRATION PAGE FOR EMPLOYEE</h2>
       </div>
       <form>
         {/* Name of employees */}
-        <div className="label-input">
-          <label htmlFor="fname" className="form-label">
-            First Name : <span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="fname" className="employee-registration-form-label">
+            First Name : <span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={fname}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="fname"
             placeholder="Enter Your First Name"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.fname && <div id="fnameError">{errors.fname}</div>}
         </div>
 
-        <div className="label-input">
-          <label htmlFor="mname" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="mname" className="employee-registration-form-label">
             Middle Name :
           </label>
           <input
             type="text"
             value={mname}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="mname"
             required
             placeholder="Enter Your Middle Name"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors"></div>
-        <div className="label-input">
-          <label htmlFor="lname" className="form-label">
-            Last Name : <span className="mandatory">*</span>
+        <div className="employee-registration-form-errors"></div>
+        <div className="employee-registration-label-input">
+          <label htmlFor="lname" className="employee-registration-form-label">
+            Last Name : <span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={lname}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="lname"
             placeholder="Enter Your Last Name"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors"></div>
+        <div className="employee-registration-form-errors"></div>
         {/* Contact Details of employees */}
-        <div className="label-input">
-          <label htmlFor="contact" className="form-label">
-            Phone Number :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="contact" className="employee-registration-form-label">
+            Phone Number :<span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={contact}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="contact"
             placeholder="Enter Phone number"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.contact && <div id="contacterror">{errors.contact}</div>}
         </div>
 
-        <div className="label-input">
-          <label htmlFor="altcontact" className="form-label">
-            Emergency Phone Number :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="altcontact" className="employee-registration-form-label">
+            Emergency Phone Number :<span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={altcontact}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="altcontact"
             placeholder="Enter Emergency Phone no"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
+          {errors.altcontact && (
+            <div id="altcontacterror">{errors.altcontact}</div>
+          )}
+        </div> 
+        {/* <div className="employee-registration-form-errors">
           {errors.altcontact && (
             <div id="altcontacterror">{errors.altcontact}</div>
           )}
         </div>
- <div className="label-input">
-          <label htmlFor="altcontact" className="form-label">
-            Emergency Phone Number :<span className="mandatory">*</span>
+ <div className="employee-registration-label-input">
+          <label htmlFor="altcontact" className="employee-registration-form-label">
+            Emergency Phone Number :<span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={altcontact}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="altcontact"
             placeholder="Enter Emergency Phone no"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.altcontact && (
             <div id="altcontacterror">{errors.altcontact}</div>
           )}
-        </div>
+        </div> */}
         {/* emergency contact name */}
-        <div className="label-input">
-          <label htmlFor="altcontact" className="form-label">
-            Emergency Contact Name :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="altcontact" className="employee-registration-form-label">
+            Emergency Contact Name :<span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="text"
             value={altcontactname}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="altcontactname"
             placeholder="Enter Emergency Contact Name"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.altcontactname && (
             <div id="altcontactnameerror">{errors.altcontactname}</div>
           )}
         </div>
         {/* Email id */}
-        <div className="label-input">
-          <label htmlFor="" className="form-label">
-            Work Email id :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="" className="employee-registration-form-label">
+            Work Email id :<span className="employee-registration-mandatory">*</span>
           </label>
           <input
             type="email"
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             value={comemail}
             id="comemail"
             placeholder="Enter Work Email id"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.comemail && <div id="comemailerror">{errors.comemail}</div>}
         </div>
         {/* Gender dropdown */}
-        <div className="label-input">
-          <label htmlFor="genderDropdown" className="form-label">
-            Gender:<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="genderDropdown" className="employee-registration-form-label">
+            Gender:<span className="employee-registration-mandatory">*</span>
           </label>
           <select
-            className="dropdown-toggle input-css-form form-placeholder"
+            className="employee-registration-dropdown-toggle employee-registration-input-css-form employee-registration-form-placeholder"
             id="genderDropdown"
             value={genderDropdown}
             onChange={(e) => setGenderDropdown(e.target.value)}
@@ -658,18 +663,18 @@ export default function EmployeeRegistrationForm() {
             <option value="female">Female</option>
           </select>
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.genderDropdown && (
             <div id="genderDropdownError">{errors.genderDropdown}</div>
           )}
         </div>
         {/* Marital status dropdown */}
-        <div className="label-input">
-          <label htmlFor="maritalStatusDropdown" className="form-label">
-            Marital Status:<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="maritalStatusDropdown" className="employee-registration-form-label">
+            Marital Status:<span className="employee-registration-mandatory">*</span>
           </label>
           <select
-            className="dropdown-toggle input-css-form form-placeholder"
+            className="employee-registration-dropdown-toggle employee-registration-input-css-form employee-registration-form-placeholder"
             id="maritalStatusDropdown"
             value={maritalStatusDropdown}
             onChange={(e) => setMaritalStatusDropdown(e.target.value)}
@@ -681,27 +686,27 @@ export default function EmployeeRegistrationForm() {
             <option value="Married">Married</option>
           </select>
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.maritalStatus && (
             <div id="maritalStatusError">{errors.maritalStatus}</div>
           )}
         </div>
         {/*Permanent Addresses of employees */}
 
-        <div className="label-input label-only">
-          <label className="form-label">
-            Permanent Address :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input employee-registration-label-only">
+          <label className="employee-registration-form-label">
+            Permanent Address :<span className="employee-registration-mandatory">*</span>
           </label>
         </div>
 
-        <div className="label-input">
-          <label htmlFor="pad1" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="pad1" className="employee-registration-form-label">
             Address Line 1 :
           </label>
           <input
             type="text"
             value={permanentAddress.address_line_1}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="pad1"
             placeholder="Enter Address Line 1"
             onChange={(event) => {
@@ -712,17 +717,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.pad1 && <div id="pad1error">{errors.pad1}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="pad2" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="pad2" className="employee-registration-form-label">
             Address Line 2 :
           </label>
           <input
             type="text"
             value={permanentAddress.address_line_2}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="pad2"
             placeholder="Enter Address Line 2"
             onChange={(event) => {
@@ -733,15 +738,15 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors"></div>
-        <div className="label-input">
-          <label htmlFor="pcountry" className="form-label">
+        <div className="employee-registration-form-errors"></div>
+        <div className="employee-registration-label-input">
+          <label htmlFor="pcountry" className="employee-registration-form-label">
             Country :
           </label>
           <input
             type="text"
             value={permanentAddress.country}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="pcountry"
             placeholder="Enter Country Name"
             onChange={(event) => {
@@ -752,18 +757,18 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {" "}
           {errors.pcountry && <div id="pcountryerror">{errors.pcountry}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="pstate" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="pstate" className="employee-registration-form-label">
             State :
           </label>
           <input
             type="text"
             value={permanentAddress.state}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="pstate"
             placeholder="Enter State Name"
             onChange={(event) => {
@@ -774,17 +779,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.pstate && <div id="pstateerror">{errors.pstate}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="pcity" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="pcity" className="employee-registration-form-label">
             City :
           </label>
           <input
             type="text"
             value={permanentAddress.city}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="pcity"
             placeholder="Enter City Name"
             onChange={(event) => {
@@ -795,17 +800,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.pcity && <div id="pcityerror">{errors.pcity}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="ppostal" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="ppostal" className="employee-registration-form-label">
             Postal Code :
           </label>
           <input
             type="text"
             value={permanentAddress.postal}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="ppostal"
             placeholder="Enter Postal Code"
             onChange={(event) => {
@@ -816,33 +821,33 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.ppostal && <div id="ppostalerror">{errors.ppostal}</div>}
         </div>
-        <div className="mb-3 form-check checkbox-label-input ">
+        <div className="employee-registration-mb-3 employee-registration-form-check employee-registration-checkbox-label-input ">
           <input
             type="checkbox"
             id="sameAddressCheckbox"
             onChange={handleSameAddressChange}
           />
-          <label className="form-check-label check-label" htmlFor="sameadd">
+          <label className="employee-registration-form-check-label employee-registration-check-label" htmlFor="sameadd">
             Same as Permanent Address
           </label>
         </div>
         {/* Correspondance address  */}
 
-        <div className="label-input label-only">
-          <label className="form-label">Correspondance Address :</label>
+        <div className="employee-registration-label-input employee-registration-label-only">
+          <label className="employee-registration-form-label">Correspondance Address :</label>
         </div>
 
-        <div className="label-input">
-          <label htmlFor="cad1" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="cad1" className="employee-registration-form-label">
             Address Line 1 :
           </label>
           <input
             type="text"
             value={correspondenceAddress.address_line_1}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="cad1"
             placeholder="Enter Address Line 1"
             onChange={(event) => {
@@ -853,18 +858,18 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {" "}
           {errors.cad1 && <div id="cad1error">{errors.cad1}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="cad2" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="cad2" className="employee-registration-form-label">
             Address Line 2 :
           </label>
           <input
             type="text"
             value={correspondenceAddress.address_line_2}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="cad2"
             placeholder="Enter Address Line 2"
             onChange={(event) => {
@@ -875,17 +880,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.cad2 && <div id="cad2error">{errors.cad2}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="ccountry" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="ccountry" className="employee-registration-form-label">
             Country :
           </label>
           <input
             type="text"
             value={correspondenceAddress.country}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="ccountry"
             placeholder="Enter Country Name"
             onChange={(event) => {
@@ -896,18 +901,18 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {" "}
           {errors.ccountry && <div id="ccountryerror">{errors.ccountry}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="cstate" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="cstate" className="employee-registration-form-label">
             State :
           </label>
           <input
             type="text"
             value={correspondenceAddress.state}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="cstate"
             placeholder="Enter State Name"
             onChange={(event) => {
@@ -918,17 +923,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.cstate && <div id="cstateerror">{errors.cstate}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="ccity" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="ccity" className="employee-registration-form-label">
             City :
           </label>
           <input
             type="text"
             value={correspondenceAddress.city}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="ccity"
             placeholder="Enter City Name"
             onChange={(event) => {
@@ -939,17 +944,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.ccity && <div id="ccityerror">{errors.ccity}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="cpostal" className="form-label">
+        <div className="employee-registration-label-input">
+          <label htmlFor="cpostal" className="employee-registration-form-label">
             Postal Code :
           </label>
           <input
             type="text"
             value={correspondenceAddress.postal}
-            className="form-control input-css-form"
+            className="form-control employee-registration-input-css-form"
             id="cpostal"
             placeholder="Enter Postal Code"
             onChange={(event) => {
@@ -960,17 +965,17 @@ export default function EmployeeRegistrationForm() {
             }}
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.cpostal && <div id="cpostalerror">{errors.cpostal}</div>}
         </div>
         {/*option*/}
-        <div className="label-input">
-          <label htmlFor="fdropdown" className="form-label">
-            Department Name :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="fdropdown" className="employee-registration-form-label">
+            Department Name :<span className="employee-registration-mandatory">*</span>
           </label>
 
           <select
-            className="dropdown-toggle input-css-form form-placeholder"
+            className="employee-registration-dropdown-toggle employee-registration-input-css-form employee-registration-form-placeholder"
             id="fdropdown"
             value={fdropdown}
             onChange={handleInputChange}
@@ -987,7 +992,7 @@ export default function EmployeeRegistrationForm() {
 
           {/* </select> */}
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.fdropdown && (
             <div id="dropdownError">{errors.fdropdown} </div>
           )}
@@ -995,10 +1000,10 @@ export default function EmployeeRegistrationForm() {
         {/* Date of birth */}
 
         <div>
-          <label className="form-label">Date of Birth :</label>
+          <label className="employee-registration-form-label">Date of Birth :</label>
           <input
             type="date"
-            className="form-control input-css-form date-field"
+            className="form-control employee-registration-input-css-form employee-registration-date-field"
             id="datePicker"
             value={selectedDate}
             onChange={handleDateChange}
@@ -1007,15 +1012,15 @@ export default function EmployeeRegistrationForm() {
             required
           />
         </div>
-        <div className="form-errors">
+        <div className="employee-registration-form-errors">
           {errors.datepicker && <div id="dateError">{errors.datepicker}</div>}
         </div>
-        <div className="label-input">
-          <label htmlFor="reporting_manager" className="form-label">
-           Reporting Manager :<span className="mandatory">*</span>
+        <div className="employee-registration-label-input">
+          <label htmlFor="reporting_manager" className="employee-registration-form-label">
+           Reporting Manager :<span className="employee-registration-mandatory">*</span>
           </label>
         <select
-        className="dropdown-toggle input-css-form form-placeholder"
+        className="employee-registration-dropdown-toggle employee-registration-input-css-form employee-registration-form-placeholder"
         id="reportingManagerDropdown"
         value={reportingManager}
         onChange={handleInputChange}
@@ -1031,7 +1036,7 @@ export default function EmployeeRegistrationForm() {
       </select> 
        </div>
         {/* Checkbox for reporting manager */}
-        <div className="mb-3 form-check checkbox-label-input reportingmanager-div">
+        <div className="employee-registration-mb-3 employee-registration-form-check employee-registration-checkbox-label-input employee-registration-reportingmanager-div">
           <input
             type="checkbox"
             id="isReportingManagerCheckbox"
@@ -1039,17 +1044,17 @@ export default function EmployeeRegistrationForm() {
             onChange={(e) => setIsReportingManager(e.target.checked)}
           />
           <label
-            className="form-check-label check-label reportingmanngerlabel"
+            className="employee-registration-form-check-label employee-registration-check-label employee-registration-reportingmanngerlabel"
             htmlFor="isReportingManagerCheckbox"
           >
             Set as Manager
           </label>
         </div>
       </form>
-      <button className="submit-button" onClick={handleSubmit} type="submit">
+      <button className="employee-registration-submit-button" onClick={handleSubmit} type="submit">
         Continue
       </button>
-      <div className="continue-text">
+      <div className="employee-registration-continue-text">
         {context && <p>Email has been sent succesfully to {comemail}</p>}
       </div>
     </div>

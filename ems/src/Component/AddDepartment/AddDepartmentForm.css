@@ -10,12 +10,12 @@ body::before {
   transform: translate(-50%, -50%) rotate(-20deg);
   z-index: -1;
 }
-.adddept-main-cont {
+.add-dept-main-cont {
   margin-top: -50px;
   height: 54vh;
   margin-left: 70px;
 }
-.edit-button {
+.add-edit-button {
   border: none;
   padding: 0px;
   cursor: pointer;
@@ -23,23 +23,23 @@ body::before {
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
 }
 
-.filter-container {
+.add-filter-container {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.select-container {
+.add-select-container {
   margin-left: 10px;
 }
 
-.search-container {
+.add-search-container {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.input-container {
+.add-input-container {
   margin-left: 10px;
 }
 
@@ -52,12 +52,12 @@ body::before {
   margin-top: -32px;
 }
 
-.deptloc-select-option:first-child {
+.add-deptloc-select-option:first-child {
   background-color: #fff;
   color: #000;
   font-weight: 300;
 }
-.deptloc-search select {
+.add-deptloc-search select {
   padding: 8px;
   border: 3px solid #ccc;
   border-radius: 20px;
@@ -68,8 +68,12 @@ body::before {
 }
 .add-deptloc-search-field {
   width: 400px;
+  margin-left:115px;
+  border: 2px solid rgb(180, 179, 179);
+  border-radius: 10px;
+  height: 35px;
 }
-.deptloc-search {
+.add-deptloc-search {
   margin-top: 25px;
   margin-left: 300px;
 }
@@ -77,18 +81,19 @@ body::before {
   margin-top: 140px;
   margin-left: 300px;
 }
-.add-deptname input {
+/* .add-dept-name input {
   margin-left: 120px;
  
   width: 395px;
   height: 35px;
   border: 2px solid rgb(180, 179, 179);
   border-radius: 10px;
-}
+} */
 .add-dept-label {
   margin-left: -45px;
+  /* margin-left:65px; */
 }
-.adddept-submit-button {
+.add-dept-submit-button {
   margin-left: 540px;
   margin-top: 60px;
   display: flex;
@@ -106,17 +111,17 @@ body::before {
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
   top: 0;
 }
-.adddept-submit-button:hover {
+.add-dept-submit-button:hover {
   background: linear-gradient(to left, blue, rgb(198, 121, 231));
   color: white;
 }
-.error-message {
+.add-dept-error-message {
   height: 20px;
   color: orangered;
   font-size: smaller;
   margin-left: 255px;
 }
-.adddept-success-message{
+.add-dept-success-message{
   padding: 5px;
     color: green;
     font-weight: 700;
@@ -124,7 +129,7 @@ body::before {
     height: 20px;
     margin-top: 20px;
 }
-.adddept-primereact-message       
+.add-dept-primereact-message       
 {
  margin-left:70px;
   width:fit-content;

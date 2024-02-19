@@ -23,11 +23,11 @@ body {
    padding: 5px;
    cursor: pointer;
  } */
- .main-achievement-upload-document-div{
+ .main-achievementdoc-upload-document-div{
   display:flex;
   height:50vh;
  }
-  .achievement-certificate-form {
+  .achievementdoc-certificate-form {
    height: 400px;
    margin-left: 180px;
    margin-top: 70px;
@@ -39,7 +39,7 @@ body {
  
   }
  
-  .achievement-doc-label {
+  .achievementdoc-doc-label {
     display: inline-block;
     margin-right: 40px;
     text-align: left;
@@ -47,7 +47,7 @@ body {
  
   }
  
-  .achievement-documents-name {
+  .achievementdoc-documents-name {
     width: 250px;
     padding: 8px;
     box-sizing: border-box;
@@ -56,9 +56,10 @@ body {
     margin-top: 4px;
     text-align: center;
     float: right;
+    margin-left:40px;
   }
  
-  .achievement-btn1 {
+  .achievementdoc-btn1 {
     margin-right:100px;
        border: none;
        border-radius: 4px;
@@ -80,24 +81,24 @@ body {
  
  
  
-  .achievement-certificate-file-button {
+  .achievementdoc-certificate-file-button {
     margin-top: 20px;
   }
  
-  .achievement-btn1:hover {
+  .achievementdoc-btn1:hover {
     background: linear-gradient(to right, blue, rgb(198, 121, 231));
     color: rgb(255, 255, 255);
   }
 
- .achievement-document-type-dropdown{
+ .achievementdoc-document-type-dropdown{
   margin-bottom:20px;
  }
  
-  .achievement-certificate-file-button {
+  .achievementdoc-certificate-file-button {
     position: relative;
   }
  
-  .achievement-upload-icon-button {
+  .achievementdoc-upload-icon-button {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -116,25 +117,25 @@ body {
   }
  
  
- .achievement-document-type-and-error{
+ .achievementdoc-document-type-and-error{
    /* border:2px solid red; */
    height:80px;
  }
- .achievement-certificate-description-column {
+ .achievementdoc-certificate-description-column {
     /* margin-bottom: 70px; */
     margin-bottom: 10px;
   }
  
-  .achievement-certificate-file-button {
+  .achievementdoc-certificate-file-button {
     margin-bottom: 10px;
   }
- .achievement-error-message-document{
+ .achievementdoc-error-message-document{
    color:orangered;
    height:30px;
    margin-bottom:10px;
    font-size:small;
  }
- .achievement-with-border {
+ .achievementdoc-preview-section-with-border {
    border: 2px solid #ccc; /* Adjust border styles as needed */
    border-radius: 5px; /* Add rounded corners if desired */
    padding: 10px; /* Add padding for better visual appearance */
@@ -145,7 +146,7 @@ body {
    margin-left: 20px;
  }
  
- .achievement-pdf-preview-section {
+ .achievementdoc-preview-section {
    border: 2px solid #ccc; /* Adjust border styles as needed */
    border-radius: 5px; /* Add rounded corners if desired */
    padding: 10px; /* Add padding for better visual appearance */
@@ -156,11 +157,11 @@ body {
    
  }
  
- .achievement-pdf-preview-section-iframe {
+ .achievementdoc-pdf-preview-section-iframe {
    width: 100%;
    height: 100%;
  }
- .achievement-preview-placeholder{
+ .achievementdoc-preview-placeholder{
    display:flex;
    justify-content:center;
    align-items:center;

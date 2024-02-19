@@ -13,21 +13,7 @@ const Calendar = () => {
   const [isFloater, setIsFloater] = useState(false);
   const [holidays, setHolidays] = useState({});
 
-  // const handleDayClick = (day) => {
-  //   const newSelectedDates = [...selectedDates];
-  //   const index = newSelectedDates.findIndex(
-  //     (date) => date.getTime() === day.date.getTime()
-  //   );
-
-  //   if (index === -1) {
-  //     newSelectedDates.push(day.date);
-  //   } else {
-  //     newSelectedDates.splice(index, 1);
-  //   }
-
-  //   setSelectedDates(newSelectedDates);
-  // };
-
+  
 
   const handleDayClick = (day) => {
     const newSelectedDates = [...selectedDates];
@@ -58,120 +44,10 @@ const Calendar = () => {
 
     setSelectedDates(newSelectedDates);
 };
-  // const getHolidayTitle = (day, holidays) => {
-
-  //   // const holidayTitles = Object.values(holidays).map(obj => Object.values(obj)[0]);
-  //   const holidayTitles = Object.values(holidays).map(obj => obj[Object.keys(obj)[0]]);
-  //   //console.log("titles",day !== null ? holidayTitles.find(title => title !== "") || "" : "");
-  //   const result = day !== null ? (holidayTitles.find(title => title !== "") || "") : "";
-  //   console.log("result", typeof(result));
-  //   return result;
-
-  // };
-
-  //   const holidayTitles = Object.values(holidays).map(obj => obj[Object.keys(obj)[0]]);
-  //   console.log("holidayTitles:",holidays);
-
-  //   const result = day !== null ? (holidayTitles.find(title => title !== "") || "") : "";
-  //   if (typeof result === 'object' && result.name) {
-  //     console.log("Result:", result.name);
-  //     return result.name;
-  // } else {
-  //     console.log("Result is empty or not an object with a name property.");
-  //     return "";
-  // }
-
-  //   const getHolidayTitle = (day, holidays) => {
-  //   if (!day) return ""; // If day is null or undefined, return an empty string
-
-  //   const allHolidays = Object.values(holidays).flatMap(obj => obj);
-  //   const matchingHoliday = allHolidays.find(holiday => {
-  //       const holidayDate = holiday.date;
-  //       console.log("holidayDate", holidayDate);
-  //       const dayDate = day.date;
-  //       return holidayDate === dayDate;
-  //   });
-  //     console.log("Result:oooo", allHolidays);
-  //     if (matchingHoliday && matchingHoliday.name) {
-  //         console.log("Result:", matchingHoliday.name);
-  //         return matchingHoliday.name;
-  //     } else {
-  //         console.log("No holiday found for the given date.");
-  //         return "";
-  //     }
-  // };
-  // const getClassNames = (day, dayIndex, holidays) => {
-  //   let classNames = day === null ? "empty-cell" : "";
-
-  //   if (day !== null) {
-  //     const isHoliday = holidays[formatDate(day.date)];
-  //     const isFirstColumn = dayIndex === 0;
-  //     const isLastColumn = dayIndex === 6;
-
-  //     if (isHoliday) {
-  //       classNames += " holiday-cell";
-  //       if (isFloatingHoliday(day.date)) {
-  //         classNames += " floating-holiday-cell";
-  //       }
-  //     }
-
-  //     if (isFirstColumn || isLastColumn) {
-  //       classNames += " light-yellow-cell";
-  //     }
-  //   }
-
-  //   return classNames;
-  // };
-
-  // const getClassNames = (day, dayIndex, holidays) => {
-  //   let classNames = day === null ? "empty-cell" : "";
-  //  console.log("hi",holidays);
-  //   if (day !== null) {
-  //     // const isHoliday = holidays[formatDate(day.date)];
-  //     const isFirstColumn = dayIndex === 0;
-  //     const isLastColumn = dayIndex === 6;
-
-  //     if (holidays.holiday_type === false) { // Check if holiday_type is true
-  //       classNames += " holiday-cell";
-  //       console.log(holidays.holiday_type)
-  //       if (isFloatingHoliday(day.date)) {
-  //         classNames += " floating-holiday-cell";
-  //       }
-  //     }
-
-  //     if (isFirstColumn || isLastColumn) {
-  //       classNames += " light-yellow-cell";
-  //     }
-  //   }
-
-  //   return classNames;
-  // };
+  
   const [holidayDate, setHolidayDate] = useState("");
   const [holidayName, setHolidayName] = useState("");
-//admin
-  // const handleAddHoliday = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:8080/addHoliday", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         date: holidayDate,
-  //         name: holidayName,
-  //         holiday_type: isFloater,
-  //       }),
-  //     });
-  //     if (response.ok) {
-  //       // Holiday added successfully, you may want to update the calendar UI
-  //       console.log("Holiday added successfully");
-  //     } else {
-  //       console.error("Failed to add holiday");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error adding holiday:", error.message);
-  //   }
-  // };
+
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
@@ -433,35 +309,6 @@ const Calendar = () => {
         </thead>
         <tbody>{renderCalendarRows()}</tbody>
       </table>
-      
-      {/* <div className="add-holiday-form">
-        <div className="calender-date-floater"> 
-        <input
-          type="date"
-          value={holidayDate}
-          onChange={(e) => setHolidayDate(e.target.value)}
-          required
-        />
-        <select
-          value={isFloater}
-          onChange={(e) => setIsFloater(e.target.value)}
-        >
-          <option value={false}>Not a Floater</option>
-          <option value={true}>Floater</option>
-        </select></div>
-       <div className="holidy-name-input-button">
-       <input
-          type="text"
-          placeholder="Holiday Name"
-          value={holidayName}
-          onChange={(e) => setHolidayName(e.target.value)}
-          required
-        />
-
-        <button className="add-holiday-button"onClick={handleAddHoliday}>Add Holiday</button>
-       </div>
-      
-      </div> */}
     </div>
   );
 };

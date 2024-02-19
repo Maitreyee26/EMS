@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./SubHeader.css";
+
 import "./SubHeaderforAttendance.css";
-import Attendance from "./Attendance";
-import Leave from "./Leave";
+import Attendance from "../AttendanceRender/Attendance";
+import Leave from "../Leave/Leave";
 
 export default function Header() {
   const [activeButton, setActiveButton] = useState("Attendance");
@@ -28,14 +28,15 @@ export default function Header() {
 
   return (
     <div>
-      <nav className="navbar header-sub">
+    <div>
+      <nav className="navbar SubAttendance-header-sub">
         <div className="container">
-          <div className="subheader-content">
+          <div className="SubAttendance-subheader-content">
             <button
               className={
                 activeButton === "Attendance"
-                  ? "each-content active"
-                  : "each-content"
+                  ? "SubAttendance-each-content SubAttendance-active"
+                  : "SubAttendance-each-content"
               }
               onClick={() => handleButtonClick("Attendance")}
             >
@@ -44,8 +45,8 @@ export default function Header() {
             <button
               className={
                 activeButton === "Leave"
-                  ? "each-content active"
-                  : "each-content"
+                  ? "SubAttendance-each-content SubAttendance-active"
+                  : "SubAttendance-each-content"
               }
               onClick={() => handleButtonClick("Leave")}
             >
@@ -55,6 +56,7 @@ export default function Header() {
         </div>
       </nav>
       <div className="component-container">{renderComponent()}</div>
+    </div>
     </div>
   );
 }

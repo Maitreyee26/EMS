@@ -1,5 +1,4 @@
-
-.employee-form {
+.employee-form-custom {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
@@ -7,51 +6,47 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.form-row {
+ 
+.form-row-custom {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
-.form-column {
+ 
+.form-column-custom {
   flex: 1;
   margin-top: 10px;
 }
-
-.EmployeeId {
+ 
+.EmployeeId-custom {
   width: 90px;
   padding: 8px;
   margin-bottom: 15px;
   box-sizing: border-box;
 }
-
-.edit-employee-label {
+ 
+.label-custom {
   display: block;
   margin-bottom: 10px;
 }
-
-.edit-employee-input
-{
+ 
+.input-custom,
+.select-custom {
   width: 90%;
   padding: 8px;
   margin-bottom: 15px;
   box-sizing: border-box;
 }
-
-.edit-employee-dropdown {
+ 
+.employee-dropdown-custom {
   padding: 8px;
   border: 3px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
   font-size: 14px;
-  width: 90%;
-  padding: 8px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
 }
-
-.Submit-button {
+ 
+.Submit-button-custom {
   background-color: rgb(10, 102, 222);
   color: white;
   padding: 10px 15px;
@@ -59,12 +54,12 @@
   border-radius: 50px;
   cursor: pointer;
 }
-
-.Submit-button:hover {
+ 
+.Submit-button-custom:hover {
   background: linear-gradient(to right, blue, rgb(198, 121, 231));
 }
-
-.employee-button {
+ 
+.employee-button-custom {
   position: absolute;
   background-color: rgb(10, 102, 222);
   color: white;
@@ -74,17 +69,17 @@
   border-radius: 50px;
   cursor: pointer;
 }
-
-.employee-button:hover {
+ 
+.employee-button-custom:hover {
   background: linear-gradient(to right, blue, rgb(198, 121, 231));
 }
-
-.styledParagraph {
+ 
+.styledParagraph-custom {
   font-size: 25px;
   font-weight: bolder;
 }
-
-.delete-button {
+ 
+.delete-button-custom {
   margin-left: 50px;
   margin-bottom: -34px;
   background-color: rgb(10, 102, 222);
@@ -94,15 +89,66 @@
   border-radius: 50px;
   cursor: pointer;
 }
-.delete-button:hover {
+ 
+.delete-button-custom:hover {
   background: linear-gradient(to right, blue, rgb(198, 121, 231));
 }
-
-
+ 
+.checkbox-container-custom {
+  display: flex;
+  align-items: center;
+}
+ 
+.checkbox-label-custom {
+  position: relative;
+  cursor: pointer;
+  padding-left: 25px;
+}
+ 
+.checkbox-input-custom {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin-right: 110px;
+}
+ 
+.custom-checkbox-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+ 
+.checkbox-input-custom:checked ~ .custom-checkbox-custom {
+  background-color: rgb(10, 102, 222);
+}
+ 
+.custom-checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+ 
+.checkbox-input-custom:checked ~ .custom-checkbox-custom:after {
+  display: block;
+}
+ 
+.custom-checkbox-custom:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+ 
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
+ 
 body::before {
   content: "Pursuit Software";
   font-family: sans-serif;
@@ -115,57 +161,5 @@ body::before {
   transform: translate(-50%, -50%) rotate(-20deg);
   z-index: -1;
 }
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-label {
-  position: relative;
-  cursor: pointer;
-  padding-left: 25px; /* Adjust spacing between the checkbox and the label */
-}
-
-.checkbox-input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  margin-right: 110px; 
-
-}
-
-.custom-checkbox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee; /* Default background color for unchecked checkbox */
-}
-
-/* Styling when the checkbox is checked */
-.checkbox-input:checked ~ .custom-checkbox {
-  background-color: rgb(10, 102, 222); /* Change background color when checked */
-}
-
-.custom-checkbox:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.checkbox-input:checked ~ .custom-checkbox:after {
-  display: block;
-}
-
-.custom-checkbox:after {
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
+ 
+has context menu

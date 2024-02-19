@@ -18,7 +18,7 @@ const DigitalClock = () => {
 
   return (
     <>
-      <p className='clock'>{formattedTime}</p>
+      <p className='Attendance-clock'>{formattedTime}</p>
     </>
   );
 };

@@ -117,7 +117,7 @@ console.log(editedDetails)
     <div className={`contact-edit-popup ${isEditing ? "visible" : ""}`}>
       <ul>
         <li>
-          <label>Work Email Id:</label>
+          <label className="contactpopup-label">Work Email Id:</label>
           <input
             type="text"
             value={editedDetails.workEmail}
@@ -129,7 +129,7 @@ console.log(editedDetails)
         </li>
 
         <li>
-          <label>Personal Email Id:</label>
+          <label  className="contactpopup-label">Personal Email Id:</label>
           <input
             type="text"
             value={editedDetails.personalEmail}
@@ -139,7 +139,7 @@ console.log(editedDetails)
           />
         </li>
         <li>
-          <label>Mobile Number:</label>
+          <label  className="contactpopup-label">Mobile Number:</label>
           <input
             type="text"
             value={editedDetails.mobileNumber}
@@ -149,7 +149,7 @@ console.log(editedDetails)
           />
         </li>
         <li>
-          <label>Work Number:</label>
+          <label  className="contactpopup-label">Work Number:</label>
           <input
             type="text"
             value={editedDetails.worknumber}
@@ -159,7 +159,7 @@ console.log(editedDetails)
           />
         </li>
         <li>
-          <label>Emergency Contact Name:</label>
+          <label  className="contactpopup-label">Emergency Contact Name:</label>
           <input
             type="text"
             value={editedDetails.emgcontactName}
@@ -169,7 +169,7 @@ console.log(editedDetails)
           />
         </li>
         <li>
-          <label>Emergency Contact Number:</label>
+          <label  className="contactpopup-label">Emergency Contact Number:</label>
           <input
             type="text"
             value={editedDetails.emgcontactNumber}

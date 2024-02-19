@@ -184,12 +184,12 @@ const AddressPopup = ({
   return (
     <div className={`edit-address-popup ${isEditing ? "visible" : ""}`}>
       <p className="addpop-form-check">
-        <input type="checkbox" id="sameAddressCheckbox" />
-        <label htmlFor="sameAddressCheckbox">Same as Permanent Address</label>
+        {/* <input type="checkbox" id="sameAddressCheckbox" />
+        <label htmlFor="sameAddressCheckbox">Same as Permanent Address</label> */}
       </p>
       <ul>
-        <li>Permanent Address:</li>
-        <li>Correspondence Address:</li>
+        <li className="addresspopupheading-li">Permanent Address:</li>
+        <li className="addresspopupheading-li">Correspondence Address:</li>
         <li className="addresspopup-li">
           <label htmlFor="p_address_line_1">Address Line 1:</label>
           <input

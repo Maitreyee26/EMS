@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import './SubHeadernew.css';
-import FeedbackGiven from './FeedbackpageGivenManager.js'; 
-import FeedbackReceive from './AchievementReceiveManager.jsx'; // Import your Request component
-import NotesComponent from './Notes.jsx'; // Import your Notes component
-import AchievementGiven from './AchievementGivenManager';
-import AchievementReceive from './AchievementReceiveManager' // Import your Feedback component
+import './SubHeader.css';
+import FeedbackGiven from '../PerformanceByManager/FeedbackpageGivenManager.js'; 
+import FeedbackReceive from '../PerformanceByManager/FeedbackpageReceiveManager'; // Import your Request component
+import NotesComponent from '../PerformanceByManager/Notes.jsx'; // Import your Notes component
+import AchievementGiven from '../PerformanceByManager/AchievementGivenManager.js';
+import AchievementReceive from '../PerformanceByManager/AchievementReceiveManager.js' // Import your Feedback component
  
 export default function SubHeader() {
   const [activeButton, setActiveButton] = useState("Request");
@@ -35,9 +35,9 @@ export default function SubHeader() {
  
   return (
 <div>
-<nav className="navbar performace-manager-header-sub">
-<div className="container">
-<div className="performace-manager-subheader-content">
+<nav className="subheader-manager-navbar header-sub">
+<div className="subheader-manager-container">
+<div className="subheader-manager-subheader-content">
 {/* <button
               className={activeButton === "Feedback" ? "each-content active" : "each-content"}
               onClick={() => handleButtonClick("Feedback")}
@@ -51,7 +51,7 @@ export default function SubHeader() {
          </select>
 
 <button
-              className={activeButton === "Notes" ? "performace-manager-each-content active" : "performace-manager-each-content"}
+              className={activeButton === "Notes" ? "subheader-manager-each-content active" : "subheader-manager-each-content"}
               onClick={() => handleButtonClick("Notes")}
 >
               Internal Notes
@@ -72,7 +72,7 @@ export default function SubHeader() {
 </div>
 </div>
 </nav>
-<div className="performace-manager-component-container">
+<div className="subheader-manager-component-container">
         {/* Render the component based on the activeButton state */}
         {renderComponent()}
 </div>

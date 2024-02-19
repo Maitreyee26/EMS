@@ -32,7 +32,7 @@ const PersonalDocument = () => {
   useEffect(() => {
     const fetchExistingDocumentNames = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/viewFile/${empId}/1`);
+        const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/viewFile/${empId}/1`);
         const data = await response.json();
         const documentNames = Object.values(data);
         setExistingDocumentNames(documentNames);
@@ -108,7 +108,7 @@ const PersonalDocument = () => {
     useEffect(() => {
       const fetchExistingDocumentNames = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/viewFile/${empId}/1`);
+          const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/${empId}/1`);
           const data = await response.json();
           const documentNames = Object.values(data);
           setExistingDocumentNames(documentNames);
@@ -136,7 +136,7 @@ const PersonalDocument = () => {
     //     }
     
     //     // Construct the URL with parameters
-    //     const apiUrl = `http://localhost:8080/uploadFile/${empId}/${encodeURIComponent(documentName)}/1`;
+    //     const apiUrl = `https://ems-backend-production-3f3d.up.railway.app/uploadFile/${empId}/${encodeURIComponent(documentName)}/1`;
     
     //     // Create FormData object to append file data
     //     // const formData = new FormData();
@@ -163,7 +163,7 @@ const PersonalDocument = () => {
     //     // Optional: Handle success, show a success message, etc.
     //     console.log('File uploaded successfully');
     //     messagesRef.current.show({ severity: 'success', summary: 'Success', detail: 'File uploaded successfully' });
-    //     const statusResponse = await fetch(`http://localhost:8080/findStatusById/${fileId}`);
+    //     const statusResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findStatusById/${fileId}`);
     // const statusData = await statusResponse.json();
     // setprimaryDetailsStatus(statusData.status); // Assuming primaryDetailsStatus represents the status of the newly added document
 
@@ -190,7 +190,7 @@ const PersonalDocument = () => {
         const formData = new FormData();
         formData.append('file', certificateFile);
     
-        const response = await axios.post(`http://localhost:8080/uploadFile/${empId}/${encodeURIComponent(documentName)}/1`, formData, {
+        const response = await axios.post(`https://ems-backend-production-3f3d.up.railway.app/uploadFile/${empId}/${encodeURIComponent(documentName)}/1`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -203,17 +203,17 @@ const PersonalDocument = () => {
         messagesRef.current.show({ severity: 'success', summary: 'Success', detail: 'File uploaded successfully' });
     
         // Fetch file ID again from viewFile endpoint
-        const viewFileResponse = await fetch(`http://localhost:8080/viewFile/${empId}/1`);
-        const viewFileData = await viewFileResponse.json();
-        const keys = Object.keys(viewFileData);
-        console.log(viewFileResponse )
-        const latestFileId = keys[keys.length - 1]; // Get the last key, which should be the latest fileId
-        setFileId(latestFileId);
+      //   const viewFileResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/viewFile/${empId}/1`);
+      //   const viewFileData = await viewFileResponse.json();
+      //   const keys = Object.keys(viewFileData);
+      //   console.log(viewFileResponse )
+      //   const latestFileId = keys[keys.length - 1]; // Get the last key, which should be the latest fileId
+      //   setFileId(latestFileId);
     
-        // Fetch status using the latest fileId
-        const statusResponse = await fetch(`http://localhost:8080/findStatusById/${latestFileId}`);
-        const statusData = await statusResponse.text();
-      console.log(statusData)// Assuming primaryDetailsStatus represents the status of the newly added document
+      //   // Fetch status using the latest fileId
+      //   const statusResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/findStatusById/${latestFileId}`);
+      //   const statusData = await statusResponse.text();
+      // console.log(statusData)// Assuming primaryDetailsStatus represents the status of the newly added document
     
       } catch (error) {
         console.error('Error uploading file:', error.message);
@@ -311,7 +311,7 @@ const PersonalDocument = () => {
       
     </div>
  <div className="certificate-submit-button">
- <button className="btn1" type="submit" onClick={handleSubmit}>
+ <button className="certificate-btn1" type="submit" onClick={handleSubmit}>
    Submit
  </button>
  <Messages ref={messagesRef} className="upload-document-primereact-message" />

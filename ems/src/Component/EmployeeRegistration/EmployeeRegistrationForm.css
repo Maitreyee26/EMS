@@ -15,7 +15,7 @@ body::before {
     transform: translate(-50%, -50%) rotate(-20deg);
     z-index: -1;
 }
-.main-div-form{
+.employee-registration-main-div-form{
     /* margin-top:30px; */
    padding-top: 30px;
    padding-left: 160px;
@@ -24,7 +24,7 @@ body::before {
    width:auto;
 }
 
-.input-css-form{
+.employee-registration-input-css-form{
     margin-left:150px;
     width:300px;
     float:right;
@@ -33,7 +33,7 @@ body::before {
  }
  
 
- .submit-button{
+ .employee-registration-submit-button{
      margin-left: 200px;
      margin-top: 50px;
      margin-bottom: auto;
@@ -47,23 +47,23 @@ body::before {
      font-weight: 600;
      padding-bottom: 20px;
      padding-top:8px;
-     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
+     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.employee-registration-653);
  }
- .submit-button:hover{
+ .employee-registration-submit-button:hover{
     background: linear-gradient(to left,blue,rgb(198, 121, 231));
     color: white;
  }
- .label-input{
+ .employee-registration-label-input{
      /* padding-bottom: 20px; */
      display:inline-block;
     
  }
- .checkbox-label-input{
+ .employee-registration-checkbox-label-input{
  
      display: inline-flex;
 
  }
- .check-label{
+ .employee-registration-check-label{
      height: 40px;
      width: 300px;
      margin-left: 10px;
@@ -75,7 +75,7 @@ body::before {
     margin-top:2px;
    
  }
- .reg-header-emp{
+ .employee-registration-reg-header-emp{
  text-align: center;
  margin-bottom:30px;
  margin-left: 20px;
@@ -86,7 +86,7 @@ body::before {
  height: 60px;
  color: rgb(0, 0, 0);
  }
- .form-label{
+ .employee-registration-form-label{
      float:"left";
      text-align:"center";
      width:200px;
@@ -97,7 +97,7 @@ body::before {
      font-weight: 480;
     
  }
- .continue-text{
+ .employee-registration-continue-text{
      color:green;
      text-align: center;
      margin: 2% 10%;
@@ -108,28 +108,28 @@ body::before {
     align-items: center;
     justify-content: center;
  }
-.form-errors{
+.employee-registration-form-errors{
     color:orangered;
      height: 20px;
     margin-bottom: 10px;
     
 }
-.date-field{
+.employee-registration-date-field{
     margin-right: 244px;
 }
-.form-placeholder{
+.employee-registration-form-placeholder{
     border-radius: 5px;
 }
-.label-only{
+.employee-registration-label-only{
     display:flex;
     
 }
-.mandatory{
+.employee-registration-mandatory{
     color:orangered;
 }
-.reportingmanngerlabel{
+.employee-registration-reportingmanngerlabel{
    margin-top:15px;
 }
-.reportingmanager-div{
+.employee-registration-reportingmanager-div{
     margin-left:-28px;
 }

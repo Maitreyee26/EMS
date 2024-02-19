@@ -38,4 +38,8 @@
   .popup-search-button:hover {
     background: linear-gradient(to right, blue, rgb(198, 121, 231));
   }
- 
+ .contactpopup-label{
+  
+  width:250px;
+  text-align:left;
+ }

@@ -201,7 +201,7 @@
   background-color: transparent;
   
 }
-.comment-edit-button{
+.feed-comment-edit-button{
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
   border-radius: 20px;
   color:#7e497e;
@@ -209,7 +209,7 @@
   background-color: transparent;
   font-size: 13px;
 }
-.comment-delete-button{
+.feed-comment-delete-button{
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
   border-radius: 20px;
   color:#7e497e;
@@ -217,12 +217,12 @@
   background-color: transparent;
   font-size: 13px;
 }
-.postcreator-info{
+.feed-postcreator-info{
   display: flex;
   gap:10px;
   
 }
-.postcreator-profile-picture{
+.feed-postcreator-profile-picture{
   width: 40px;
   height: 40px;
   color: white;
@@ -236,16 +236,16 @@
   border: 2px solid #7e497e;
   background-color: #938de3;
 }
-.edit-mode-post{
+.feed-edit-mode-post{
   margin-left: -370px;
   display: grid;
   align-items: center;
   justify-content: center;
 }
-.edit-mode-post textarea{
+.feed-edit-mode-post textarea{
   height: fit-content;
 }
-.edit-mode-save{
+.feed-edit-mode-save{
   width: fit-content;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -262,11 +262,11 @@
   box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
  
 }
-.comment-buttons {
+.feed-comment-buttons {
   display: flex;
   gap: 5px;
 
 }
-.comment-header{
+.feed-comment-header{
   display: flex;
 }

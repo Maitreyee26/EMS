@@ -152,7 +152,7 @@ export default function Username() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/checkEmailExists/${username}`, {
+      const response = await fetch(`https://ems-backend-production-3f3d.up.railway.app/checkEmailExists/${username}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ export default function Username() {
 
         if (exists === 'true') {
           // Username exists, proceed to send OTP
-          const otpResponse = await fetch(`http://localhost:8080/sendEmail/${username}`, {
+          const otpResponse = await fetch(`https://ems-backend-production-3f3d.up.railway.app/sendEmail/${username}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

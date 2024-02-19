@@ -15,7 +15,7 @@
     
     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.2);
 }
-.grid-container {
+.about-my-details-grid-container {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
@@ -23,7 +23,7 @@
     width: 100%; 
   }
   
-  .grid-item {
+  .about-my-details-grid-item {
     padding: 20px;
     margin-right:0;
     text-align: center;
@@ -32,7 +32,7 @@
   text-overflow: ellipsis;
    
   }
-  .action-button{
+  .about-my-details-action-button{
     
     margin-left: 30px;
     margin-top: 50px;
@@ -50,22 +50,22 @@
     box-shadow: 0 2px 5px rgba(3, 3, 3, 0.653);
     
   }
-  .action-button:hover{
+  .about-my-details-action-button:hover{
    background: linear-gradient(to left,blue,rgb(198, 121, 231));
    color: white;
   }
-  .dropdown {
+  .about-my-details-dropdown {
     position: relative; /* Ensure the dropdown container is positioned relatively */
   }
   
-  .icon-container {
+  .about-my-details-icon-container {
     position: absolute; /* Position the icon container absolutely within the dropdown */
     right:5%;/* Align the icon container to the right */
     top:55%; /* Align the icon container vertically in the middle */
     transform: translateY(-50%); /* Adjust vertical alignment */
   }
   
-  .hover-text {
+  .about-my-details-hover-text {
     position: absolute; /* Position the hover text absolutely within the dropdown */
     top: 50%; /* Align the hover text vertically in the middle */
     left: calc(100% + 10px); /* Adjust horizontal positioning */

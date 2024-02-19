@@ -12,38 +12,13 @@ const Calendar = () => {
   const [isFloater, setIsFloater] = useState(false);
   const [holidays, setHolidays] = useState({});
   const messagesRef = useRef(null);
-  //   const currentDate = new Date();
-  //   const currentYear = currentDate.getFullYear();
-  //   const nextYear = currentYear + 1;
-
-  //   // Calculate the minimum and maximum dates for the input field
-  //   const minDate = new Date(currentYear, 0, 1); // January 1st of the current year
-  //   const maxDate = new Date(nextYear, 0, 0); // December 31st of the current year
-
-  //   // Function to format the date to 'YYYY-MM-DD' format
-  //   const formatDate = (date) => {
-  //     return date.toISOString().split('T')[0];
-  //   };
 
   // Function to check if a given date is a Sunday or Saturday
   const isWeekend = (date) => {
     const dayOfWeek = date.getDay();
     return dayOfWeek === 0 || dayOfWeek === 6;
   };
-  // const handleDayClick = (day) => {
-  //   const newSelectedDates = [...selectedDates];
-  //   const index = newSelectedDates.findIndex(
-  //     (date) => date.getTime() === day.date.getTime()
-  //   );
-
-  //   if (index === -1) {
-  //     newSelectedDates.push(day.date);
-  //   } else {
-  //     newSelectedDates.splice(index, 1);
-  //   }
-
-  //   setSelectedDates(newSelectedDates);
-  // };
+  
   const handleDayClick = (day) => {
     const newSelectedDates = [...selectedDates];
     const index = newSelectedDates.findIndex(

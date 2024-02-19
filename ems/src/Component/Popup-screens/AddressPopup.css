@@ -47,17 +47,11 @@
     transform: scale(0.7); /* Adjust the scale factor as needed */
     margin: 0;
   }
+  .addresspopupheading-li{
+    /* border: 1px solid red; */
+    text-align: left;
+  }
   
-  /* .address-field {
-    margin-bottom: 10px;
-   
-  } */
-  
-  /* .address-field label {
-   
-    margin-bottom: 5px;
-    margin-right:100px;
-  } */
   
   .address-field input {
     width: 80%; /* Make input fields fill the entire width of their container */
